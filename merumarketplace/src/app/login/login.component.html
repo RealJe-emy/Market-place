@@ -1,27 +1,15 @@
-<div ss="container mt-5">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <div class="card">
-        <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group mb-3">
-              <label for="username">Username</label>
-              <input type="text" id="username" class="form-control" formControlName="username">
-              <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].touched || loginForm.dirty)" class="text-danger">
-                Username is required.
-              </div>
-            </div>
-            <div class="form-group mb-3">
-              <label for="password">Password</label>
-              <input type="password" id="password" class="form-control" formControlName="password">
-              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || loginForm.dirty)" class="text-danger">
-                Password is required.
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
-          </form>
-        </div>
-      </div>
+<div class="login-container">
+  <h2>Login</h2>
+  <form>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
     </div>
-  </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+    <p>Don't have an account? <a href="#">Sign up</a></p>
+  </form>
 </div>
