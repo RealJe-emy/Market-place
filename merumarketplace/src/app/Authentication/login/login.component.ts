@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
-loginForm: any;
-  
 
 }
-
