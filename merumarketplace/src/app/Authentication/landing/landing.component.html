@@ -1,1 +1,64 @@
-<p>landing works!</p>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+      <h1 class="hero-title">University Campus Marketplace</h1>
+      <p class="hero-tagline">Buy and sell products and services with ease</p>
+      <button class="btn btn-primary hero-cta">Get Started</button>
+    </div>
+  </section>
+  
+  <!-- Featured Products and Services Section -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Featured Products and Services</h2>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of featuredItems">
+          <div class="item">
+            <img src="{{ item.image }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Deals and Promotions Section -->
+  <section class="deals-promotions">
+    <div class="container">
+      <h2 class="section-title">Deals and Promotions</h2>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let deal of deals">
+            <img src="{{ deal.image }}" alt="{{ deal.name }}">
+            <div class="carousel-caption">
+              <h3>{{ deal.name }}</h3>
+              <p>{{ deal.description }}</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#"></a>
+        <a class="carousel-control-next" href="#"></a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call-to-Action Section -->
+  <section class="call-to-action">
+    <div class="container">
+      <h2 class="section-title">Ready to Start Buying and Selling?</h2>
+      <button class="btn btn-primary">Sign Up Now</button>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 University Campus Marketplace</p>
+      <ul class="social-links">
+        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </footer>
