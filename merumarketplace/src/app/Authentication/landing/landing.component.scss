@@ -2,7 +2,7 @@
 $primary: #81C408;
 $secondary: #FFB524;
 $light: #F4F6F8;
-$dark: #333; // For text and other dark elements
+$dark: #45595B;
 
 // Global Styles
 body {
@@ -200,27 +200,153 @@ a {
   }
 }
 
-// Footer
+// Color Variables
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+// Typography
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+
+// Border Radius
+$border-radius: 10px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+$enable-responsive-font-sizes: true;
+$enable-negative-margins: true;
+
+// Link Decoration
+$link-decoration: none;
+
+// Footer Styles
 .footer {
   background-color: $dark;
-  padding: 40px;
-  color: $light;
-  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color:  rgba(255, 255, 255, .5);
+  font-family: $font-family-base;
+  border-top: 1px solid rgba($secondary, 0.5);
 
-  h2 {
-    color: $primary;
+  .footer-item {
+    h4 {
+      color: var(--bs-secondary) !important;
+      font-family: $headings-font-family;
+      font-weight: $headings-font-weight;
+      margin-bottom: 1.5rem;
+    }
+
+    p.mb-4 {
+      line-height: 35px;
+    }
+
+    .btn-link {
+      line-height: 35px;
+      color: rgba(255, 255, 255, .5);
+      transition: 0.5s;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
   }
 
-  p {
-    margin: 0;
+  // Newsletter Subscription Input
+  .newsletter {
+    .form-control {
+      border-radius: $border-radius-lg;
+      padding: 1rem 1.5rem;
+      background-color: $dark;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color:  rgba(255, 255, 255, .5);
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .btn-primary {
+      background-color: #81C408;
+      border: none;
+      color: $primary;
+      border-radius: $secondary;
+      padding: 1rem 2rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $secondary
+      }
+    }
   }
 
-  .footer-links a {
-    color: $light;
-    margin: 0 10px;
+  // Social Media Icons
+  .social-icons {
+    a {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, .5);
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $secondary;
+       
+        
+      }
+    }
+  }
+}
+
+// Copyright Section
+.copyright {
+  background-color: lighten($dark, 5%);
+  padding: 1.5rem 0;
+  color: rgba(255, 255, 255, 0.5);
+
+  a {
+    color: rgba(255, 255, 255, .5);
+    text-decoration: $link-decoration;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
     &:hover {
       color: $secondary;
     }
   }
 }
+
+// Back to Top Button
+.back-to-top {
+  background-color: $primary;
+  color: rgba(255, 255, 255, .5);
+  border: 3px solid $primary;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: $secondary
+   
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
