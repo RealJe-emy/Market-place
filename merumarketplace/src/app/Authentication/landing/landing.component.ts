@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
 export class LandingComponent {
 featuredItems: any;
 deals: any;
+recommendedProducts: any;
+newProducts: any;
+topPicks: any;
 
 }
