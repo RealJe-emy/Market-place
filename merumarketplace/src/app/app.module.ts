@@ -11,6 +11,10 @@ import { LoginComponent } from './Authentication/login/login.component';
 import { LandingComponent } from './Authentication/landing/landing.component';
 import { RegistrationComponent } from './Authentication/registration/registration.component';
 import { ProductspageComponent } from './pages/productspage/productspage.component';
+import { MenshoespageComponent } from './pages/Men shoes/menshoespage/menshoespage.component';
+import { MenshoesdescriptionpageComponent } from './pages/Men shoes/menshoesdescriptionpage/menshoesdescriptionpage.component';
+import { DrinkspageComponent } from './pages/Drinks/drinkspage/drinkspage.component';
+import { DrinksdescriptionpageComponent } from './pages/Drinks/drinksdescriptionpage/drinksdescriptionpage.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ProductspageComponent } from './pages/productspage/productspage.compone
     LoginComponent,
     LandingComponent,
     RegistrationComponent,
-    ProductspageComponent
+    ProductspageComponent,
+    MenshoespageComponent,
+    MenshoesdescriptionpageComponent,
+    DrinkspageComponent,
+    DrinksdescriptionpageComponent
   ],
   imports: [
     BrowserModule,
