@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
+import { Login } from './login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +10,59 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginData = { username: '', password: '' };
-  message: string | null = null;  // General message property
+  loginForm: FormGroup;
+  isError = false;
 
-  constructor(private loginService: LoginService, private router: Router) {}
-
-  onSubmit() {
-    this.loginService.login(this.loginData).subscribe(
-      response => {
-        this.message = 'Login successful!';
-        setTimeout(() => {
-          this.message = null;  // Clear the message after 2 seconds
-          this.router.navigate(['/dashboard']);  // Redirect to dashboard
-        }, 2000);  // Wait for 2 seconds before clearing the message and redirecting
-      },
-      error => {
-        this.message = 'Login failed. Please check your username and password.';
-        setTimeout(() => this.message = null, 2000);  // Clear the message after 2 seconds
-      }
-    );
+  constructor(
+    private fb: FormBuilder,
+    private loginService: Login,
+    private router: Router
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
   }
+
+  async onSubmit() {
+    if (this.loginForm.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Form',
+        text: 'Please enter a valid email and password.',
+        timer: 3000,
+        showConfirmButton: false
+      });
+      return;
+    }
+  
+    const { email, password } = this.loginForm.value;
+  
+    try {
+      const userCredential = await this.loginService.login(email, password);
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Login successful!',
+        text: 'Redirecting to dashboard...',
+        timer: 2000,
+        showConfirmButton: false
+      });
+  
+      // Redirect to dashboard after 2 seconds
+      setTimeout(() => {
+        this.router.navigate(['/dashboard']);
+      }, 2000);
+  
+    } catch (error: any) {
+      // Handle login failure
+      Swal.fire({
+        icon: 'error',
+        title: 'Login failed',
+        text: error.message || 'Please check your email and password.',
+        timer: 3000,
+        showConfirmButton: false
+      });
+    }}
+  
 }
