@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  message: string | null = null; // General message property
   isError = false;
 
   constructor(
@@ -39,19 +40,19 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
   
     try {
-      const userCredential = await this.loginService.login(email, password);
+      await this.loginService.login(email, password);
       
       Swal.fire({
         icon: 'success',
         title: 'Login successful!',
-        text: 'Redirecting to dashboard...',
+        text: 'Redirecting to landing page...',
         timer: 2000,
         showConfirmButton: false
       });
   
-      // Redirect to dashboard after 2 seconds
+      // Redirect to landing page after 2 seconds
       setTimeout(() => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/landing']);
       }, 2000);
   
     } catch (error: any) {
@@ -63,6 +64,8 @@ export class LoginComponent {
         timer: 3000,
         showConfirmButton: false
       });
-    }}
-  
+      this.isError = true; // Set error flag
+      this.message = error.message; // Store error message for display
+    }
+  }
 }
