@@ -1,0 +1,80 @@
+<div class="product-listing">
+
+    <!-- sidebar start -->
+    <div class="sidebar">
+      <h2>Search filter</h2>
+  
+      <h3>Price</h3>
+      <div class="price-range">
+        <input type="number" placeholder="Min" [(ngModel)]="minPrice">
+        —
+        <input type="number" placeholder="Max" [(ngModel)]="maxPrice">
+        <button (click)="applyPriceFilter()">Apply</button>
+      </div>
+  
+      <h3>Category</h3>
+      <ul>
+        <li *ngFor="let category of categories">
+          <input type="checkbox" [id]="category" (change)="onCategoryChange($event, category)">
+          <label [for]="category">{{ category }}</label>
+        </li>
+      </ul>
+  
+      <h3>Shipped From</h3>
+      <ul>
+        <li>
+          <input type="checkbox" id="fulfilledByKilimall" [(ngModel)]="fulfilledByKilimall">
+          <label for="fulfilledByKilimall">Fulfilled By Kilimall</label>
+        </li>
+        <li>
+          <input type="checkbox" id="overseaShipment" [(ngModel)]="overseaShipment">
+          <label for="overseaShipment">Oversea Shipment</label>
+        </li>
+      </ul>
+    </div>
+    <!-- sidebar end -->
+
+  
+    <!-- products start -->
+    <div class="products">
+      <div class="header">
+        <div class="filter-buttons">
+          <button [ngClass]="{'active': activeFilter === 'popular'}" (click)="applyFilter('popular')">Popular</button>
+          <button [ngClass]="{'active': activeFilter === 'topSale'}" (click)="applyFilter('topSale')">Top Sale</button>
+          <button [ngClass]="{'active': activeFilter === 'latest'}" (click)="applyFilter('latest')">Latest</button>
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Price
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#" (click)="applyPriceSort('asc')">Low to High</a></li>
+              <li><a href="#" (click)="applyPriceSort('desc')">High to Low</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pagination">
+          <span>{{ currentPage }} / {{ totalPages }}</span>
+          <button (click)="previousPage()" [disabled]="currentPage === 1"><</button>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages">></button>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let product of products">
+          <img [src]="product.imageUrl" [alt]="product.name">
+          <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            <p class="price">KSh {{ product.price }}</p>
+            <div class="rating">
+              <span class="star" *ngFor="let i of [].constructor(5); let j = index"
+                [ngClass]="{'filled': j < product.rating}">★</span>
+              <span class="count">({{ product.reviews }})</span>
+            </div>
+            <p class="shipping">{{ product.shipping }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- products end -->
