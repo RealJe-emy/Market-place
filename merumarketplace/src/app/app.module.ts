@@ -16,6 +16,10 @@ import { LoginComponent } from './Authentication/login/login.component';
 import { LandingComponent } from './Authentication/landing/landing.component';
 import { RegistrationComponent } from './Authentication/registration/registration.component';
 import { ProductspageComponent } from './pages/productspage/productspage.component';
+import { DescriptionpageComponent } from './pages/descriptionpage/descriptionpage.component';
+import { KitchenpageComponent } from './pages/kitchen/kitchenpage/kitchenpage.component';
+import { KitchendescriptionComponent } from './pages/kitchen/kitchendescription/kitchendescription.component';
+import { FurnitureComponent } from './pages/furniture/furniture.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { ProductspageComponent } from './pages/productspage/productspage.compone
     LoginComponent,
     LandingComponent,
     RegistrationComponent,
-    ProductspageComponent
+    ProductspageComponent,
+    DescriptionpageComponent,
+    KitchenpageComponent,
+    KitchendescriptionComponent,
+    FurnitureComponent
   ],
   imports: [
     BrowserModule,
