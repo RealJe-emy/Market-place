@@ -22,7 +22,8 @@ export class RegisterService {
       // Create userData object with userId
       const userData = {
         username,    // User's name
-        email,       // User's email
+        email,
+        password,       // User's email
         role,        // User's role (e.g., admin, customer)
         location,    // User's location (optional field)
         userId: user.uid // Use uid from Firebase and assign it to userId
