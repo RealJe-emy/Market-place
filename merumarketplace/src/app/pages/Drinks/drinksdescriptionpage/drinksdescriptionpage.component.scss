@@ -1,0 +1,177 @@
+// @import 'src\assets\custom-bootstrap.scss';
+
+// Colors
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+// Fonts
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+
+// Typography
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+$enable-responsive-font-sizes: true;
+
+// Borders
+$border-radius: 10px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+
+// Links
+$link-decoration: none;
+
+// Margins
+$enable-negative-margins: true;
+
+// Global Styles
+body {
+  font-family: $font-family-base;
+  color: $body-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  color: $headings-color;
+  font-weight: $headings-font-weight;
+}
+
+.display {
+  font-weight: $display-font-weight;
+}
+
+a {
+  text-decoration: $link-decoration;
+  color: $primary;
+
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.btn {
+  border-radius: $border-radius;
+
+  &.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+      border-color: darken($secondary, 10%);
+    }
+  }
+}
+
+.drinks-page {
+  // Your drinks page specific styles go here
+  .drinks-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+
+    .drinks-image {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding-right: 2rem;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius;
+      }
+
+      .thumbnail-list {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        img {
+          max-width: 80px;
+          height: auto;
+          margin: 0 0.5rem;
+          border-radius: $border-radius;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .drinks-details {
+      flex: 0 0 50%;
+      max-width: 50%;
+
+      .rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .stars {
+          color: #ffa500;
+          font-size: 1.2rem;
+          margin-right: 0.5rem;
+        }
+
+        .rating-value {
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+
+        .review-count {
+          color: $body-color;
+          font-size: 0.9rem;
+        }
+      }
+
+      .volume-selection,
+      .flavor-selection {
+        margin-bottom: 1rem;
+
+        label {
+          font-weight: bold;
+          margin-right: 1rem;
+        }
+
+        .volume-options,
+        .flavor-options {
+          button {
+            background-color: $light;
+            border: none;
+            color: $body-color;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: $border-radius-sm;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+              background-color: $primary;
+              color: #fff;
+            }
+
+            &:disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+}
