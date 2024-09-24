@@ -1,71 +1,58 @@
 import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-furnituredescription',
-  templateUrl: './furnituredescription.component.html',
-  styleUrl: './furnituredescription.component.scss'
-})
-export class FurnituredescriptionComponent {
-
-}
-
-// furniture-product.component.ts
-import { Component, OnInit } from '@angular/core';
-
-interface FurnitureProduct {
-  name: string;
-  description: string;
-  rating: number;
-  reviews: number;
-  price: number;
-  originalPrice: number;
-  discount: number;
-  material: string;
-  dimensions: string;
-  color: string[];
-  inStock: boolean;
-  deliveryTime: string;
-}
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-furniture-product',
-  templateUrl: './furniture-product.component.html',
-  styleUrls: ['./furniture-product.component.scss']
+  templateUrl: './furnituredescription.component.html',
+  styleUrls: ['./furnituredescription.component.scss']
 })
-export class FurnitureProductComponent implements OnInit {
-  product: FurnitureProduct = {
+export class FurnitureProductComponent {
+  product = {
     name: 'Modern Leather Sofa',
-    description: 'Elegant and comfortable 3-seater sofa with genuine leather upholstery',
-    rating: 4.7,
-    reviews: 253,
-    price: 1299.99,
-    originalPrice: 1599.99,
-    discount: 19,
-    material: 'Genuine Leather, Solid Wood Frame',
-    dimensions: '84"W x 35"D x 31"H',
+    description: 'A stylish and comfortable leather sofa for modern living rooms.',
+    rating: 4.5,
+    reviews: 134,
+    price: 799.99,
+    originalPrice: 999.99,
+    discount: 20,
+    material: 'Leather',
+    dimensions: '84 x 34 x 34 inches',
     color: ['Black', 'Brown', 'White'],
     inStock: true,
-    deliveryTime: 'Ships within 5-7 business days'
+    deliveryTime: '3-5 business days',
   };
 
-  selectedColor: string = this.product.color[0];
   quantity: number = 1;
+  selectedColor: string = this.product.color[0]; // Default to first color option
 
-  constructor() { }
-
-  ngOnInit(): void { }
-
-  selectColor(color: string): void {
+  // Select color
+  selectColor(color: string) {
     this.selectedColor = color;
   }
 
-  incrementQuantity(): void {
-    this.quantity++;
+  // Increment quantity
+  incrementQuantity() {
+    if (this.quantity < 10) { // Assuming a max of 10 items
+      this.quantity++;
+    }
   }
 
-  decrementQuantity(): void {
+  // Decrement quantity
+  decrementQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
     }
+  }
+
+  // Method to add to cart
+  addToCart() {
+    console.log(`Added ${this.quantity} ${this.product.name}(s) to cart with color ${this.selectedColor}`);
+    // Add logic to save the cart details
+  }
+
+  // Method to buy now
+  buyNow() {
+    console.log(`Purchasing ${this.quantity} ${this.product.name}(s) with color ${this.selectedColor}`);
+    // Add logic to handle the purchase
   }
 }

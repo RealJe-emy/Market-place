@@ -15,9 +15,11 @@ export class ProductPageComponent {
 
   addToCart() {
     // Implement logic to add the product to the cart
+    console.log('Product added to cart');
   }
 
   buyNow() {
     // Implement logic to buy the product
+    console.log('Proceed to buy product');
   }
 }
