@@ -13,6 +13,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   message: string | null = null; // General message property
   isError = false;
+registrationForm: any;
 
   constructor(
     private fb: FormBuilder,
@@ -35,10 +36,8 @@ export class LoginComponent {
         showConfirmButton: false
       });
       return;
-    }
-  
-    const { email, password } = this.loginForm.value;
-  
+    }  
+    const { email, password } = this.loginForm.value;  
     try {
       await this.loginService.login(email, password);
       
@@ -64,6 +63,8 @@ export class LoginComponent {
         timer: 3000,
         showConfirmButton: false
       });
+
+      
       this.isError = true; // Set error flag
       this.message = error.message; // Store error message for display
     }

@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:'', component: LandingComponent},
  {path:'login', component: LoginComponent},
   {path:'Registration', component: RegistrationComponent},
+  {path:'landing', component: LandingComponent},
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
  
 
