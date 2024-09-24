@@ -16,8 +16,8 @@ interface LaundryService {
 
 @Component({
   selector: 'app-laundry-service-detail',
-  templateUrl: './laundry-service-detail.component.html',
-  styleUrls: ['./laundry-service-detail.component.scss']
+  templateUrl: './gasdescription.component.html',
+  styleUrls: ['./gasdescription.component.scss']
 })
 export class LaundryServiceDetailComponent {
   service: LaundryService = {
