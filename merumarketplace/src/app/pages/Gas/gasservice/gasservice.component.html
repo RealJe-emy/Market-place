@@ -1,0 +1,18 @@
+<!-- laundry-service.component.html -->
+<div class="laundry-service-card" (click)="toggleContact()">
+    <div class="service-info">
+      <h2>{{ service.name }}</h2>
+      <p class="description">{{ service.description }}</p>
+      <p class="price"><strong>Price:</strong> {{ service.price }}</p>
+      <p class="turnaround"><strong>Turnaround Time:</strong> {{ service.turnaroundTime }}</p>
+    </div>
+    <div class="contact-info" [class.show]="showContact">
+      <h3>Contact Information</h3>
+      <p><strong>Name:</strong> {{ service.contactName }}</p>
+      <p><strong>Phone:</strong> {{ service.contactPhone }}</p>
+      <p><strong>Email:</strong> {{ service.contactEmail }}</p>
+    </div>
+    <div class="click-instruction" [class.hide]="showContact">
+      Click to view contact information
+    </div>
+  </div>

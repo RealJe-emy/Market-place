@@ -25,6 +25,12 @@ import { ElectronicsdescriptionComponent } from './pages/Electronics/electronics
 import { FurnituredescriptionComponent } from './pages/Furniture/furnituredescription/furnituredescription.component';
 import { SecondhanddescriptionComponent } from './pages/SecondHand/secondhanddescription/secondhanddescription.component';
 import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secondhandpage.component';
+import { LaundryserviceComponent } from './pages/Laundry/laundryservice/laundryservice.component';
+import { LaundrydescriptionComponent } from './pages/Laundry/laundrydescription/laundrydescription.component';
+import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.component';
+import { WifidescriptionComponent } from './pages/WiFi/wifidescription/wifidescription.component';
+import { GasserviceComponent } from './pages/Gas/gasservice/gasservice.component';
+import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescription.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secon
     ElectronicsdescriptionComponent,
     FurnituredescriptionComponent,
     SecondhanddescriptionComponent,
-    SecondhandpageComponent
+    SecondhandpageComponent,
+    LaundryserviceComponent,
+    LaundrydescriptionComponent,
+    WifiserviceComponent,
+    WifidescriptionComponent,
+    GasserviceComponent,
+    GasdescriptionComponent
   ],
   imports: [
     BrowserModule,
