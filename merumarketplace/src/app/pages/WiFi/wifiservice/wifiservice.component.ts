@@ -1,33 +1,5 @@
 import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-wifiservice',
-  templateUrl: './wifiservice.component.html',
-  styleUrl: './wifiservice.component.scss'
-})
-export class WifiserviceComponent {
-toggleContact() {
-throw new Error('Method not implemented.');
-}
-service: any;
-showContact: any;
-
-}
-
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-laundryservice',
-  templateUrl: './laundryservice.component.html',
-  styleUrl: './laundryservice.component.scss'
-})
-export class LaundryserviceComponent {
-
-}
-
-// laundry-service.component.ts
-import { Component } from '@angular/core';
-
 interface LaundryService {
   name: string;
   description: string;
@@ -40,8 +12,8 @@ interface LaundryService {
 
 @Component({
   selector: 'app-laundry-service',
-  templateUrl: './laundry-service.component.html',
-  styleUrls: ['./laundry-service.component.scss']
+  templateUrl: './wifiservice.component.html', // Ensure this matches the actual HTML file
+  styleUrls: ['./wifiservice.component.scss'] // Corrected from styleUrl to styleUrls
 })
 export class LaundryServiceComponent {
   service: LaundryService = {
@@ -56,7 +28,7 @@ export class LaundryServiceComponent {
 
   showContact: boolean = false;
 
-  toggleContact() {
-    this.showContact = !this.showContact;
+  toggleContact(): void {
+    this.showContact = !this.showContact; // Implemented toggle logic
   }
 }

@@ -19,12 +19,9 @@ import { RegistrationComponent } from './Authentication/registration/registratio
 import { ProductspageComponent } from './pages/productspage/productspage.component';
 
 import { DrinkspageComponent } from './pages/Drinks/drinkspage/drinkspage.component';
-
-import { ElectronicspageComponent } from './pages/Electronics/electronicspage/electronicspage.component';
-import { ElectronicsdescriptionComponent } from './pages/Electronics/electronicsdescription/electronicsdescription.component';
-import { SecondhanddescriptionComponent } from './pages/SecondHand/secondhanddescription/secondhanddescription.component';
-import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.component';
 import { ProductPageComponent } from './pages/kitchen/kitchendescription/kitchendescription.component';
+
+
 
 
 @NgModule({
@@ -35,10 +32,8 @@ import { ProductPageComponent } from './pages/kitchen/kitchendescription/kitchen
     ProductPageComponent,
     ProductspageComponent,
     DrinkspageComponent,
-    ElectronicspageComponent,
-    ElectronicsdescriptionComponent,
-    SecondhanddescriptionComponent,
-    WifiserviceComponent,
+
+   
 
 
 
@@ -50,6 +45,7 @@ import { ProductPageComponent } from './pages/kitchen/kitchendescription/kitchen
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    
     AngularFireModule.initializeApp(environment.firebaseConfig), // Initialize Firebase
     AngularFireAuthModule,
     AngularFireDatabaseModule,

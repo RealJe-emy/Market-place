@@ -1,15 +1,3 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-secondhanddescription',
-  templateUrl: './secondhanddescription.component.html',
-  styleUrl: './secondhanddescription.component.scss'
-})
-export class SecondhanddescriptionComponent {
-
-}
-
-// secondhand-item.component.ts
 import { Component, OnInit } from '@angular/core';
 
 interface SecondhandItem {
@@ -30,8 +18,8 @@ interface SecondhandItem {
 
 @Component({
   selector: 'app-secondhand-item',
-  templateUrl: './secondhand-item.component.html',
-  styleUrls: ['./secondhand-item.component.scss']
+  templateUrl: './secondhanddescription.component.html', // Ensure this matches the actual HTML file
+  styleUrls: ['./secondhanddescription.component.scss']
 })
 export class SecondhandItemComponent implements OnInit {
   item: SecondhandItem = {
@@ -52,9 +40,9 @@ export class SecondhandItemComponent implements OnInit {
 
   currentImageIndex: number = 0;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   nextImage(): void {
     this.currentImageIndex = (this.currentImageIndex + 1) % this.item.images.length;

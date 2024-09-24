@@ -1,17 +1,5 @@
 import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-laundryservice',
-  templateUrl: './laundryservice.component.html',
-  styleUrl: './laundryservice.component.scss'
-})
-export class LaundryserviceComponent {
-
-}
-
-// laundry-service.component.ts
-import { Component } from '@angular/core';
-
 interface LaundryService {
   name: string;
   description: string;
@@ -24,10 +12,10 @@ interface LaundryService {
 
 @Component({
   selector: 'app-laundry-service',
-  templateUrl: './laundry-service.component.html',
-  styleUrls: ['./laundry-service.component.scss']
+  templateUrl: './gasservice.component.html',
+  styleUrls: ['./gasservice.component.scss'] // Corrected to styleUrls
 })
-export class LaundryServiceComponent {
+export class LaundryserviceComponent {
   service: LaundryService = {
     name: 'SparkleClean Laundry',
     description: 'Professional wash, dry, and fold service for all your laundry needs.',
