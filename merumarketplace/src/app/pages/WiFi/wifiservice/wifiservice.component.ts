@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrl: './wifiservice.component.scss'
 })
 export class WifiserviceComponent {
+toggleContact() {
+throw new Error('Method not implemented.');
+}
+service: any;
+showContact: any;
 
 }
 

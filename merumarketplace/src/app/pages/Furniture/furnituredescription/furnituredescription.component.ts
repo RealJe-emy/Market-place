@@ -6,6 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './furnituredescription.component.scss'
 })
 export class FurnituredescriptionComponent {
+product: any;
+selectedColor: any;
+selectColor(_t27: any) {
+throw new Error('Method not implemented.');
+}
+decrementQuantity() {
+throw new Error('Method not implemented.');
+}
+quantity: any;
+incrementQuantity() {
+throw new Error('Method not implemented.');
+}
 
 }
 
