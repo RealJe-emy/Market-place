@@ -1,1 +1,57 @@
-<p>menshoes works!</p>
+<div class="shoes-page"></div>
+    <h2>Our Shoe Collection</h2>
+    <button class="filter-button active">Popular</button>
+    <button class="filter-button">Top Sale</button>
+    <button class="filter-button">Latest</button>
+  
+    <div class="filter-options">
+      <h3>Filter by:</h3>
+      <div class="filter-group">
+        <h4>Category</h4>
+        <label>
+          <input type="checkbox"> Running
+        </label>
+        <label>
+          <input type="checkbox"> Casual
+        </label>
+        <label>
+          <input type="checkbox"> Formal
+        </label>
+        <label>
+          <input type="checkbox"> Sports
+        </label>
+      </div>
+  
+      <div class="filter-group">
+        <h4>Size</h4>
+        <label>
+          <input type="checkbox"> 7
+        </label>
+        <label>
+          <input type="checkbox"> 8
+        </label>
+        <label>
+          <input type="checkbox"> 9
+        </label>
+        <label>
+          <input type="checkbox"> 10
+        </label>
+      </div>
+  
+      <div class="filter-group">
+        <h4>Price</h4>
+        <input type="number" placeholder="Min"> -
+        <input type="number" placeholder="Max">
+        <button>Apply</button>
+      </div>
+    </div>
+  
+    <div class="shoe-grid">
+      <div class="shoe-card" *ngFor="let shoe of shoes">
+        <img src="{{shoe.imageUrl}}" alt="{{shoe.name}}">
+        <h3>{{shoe.name}}</h3>
+        <p>{{shoe.price | currency}}</p>
+        <p>{{shoe.description}}</p>
+      </div>
+    </div>
+</div>

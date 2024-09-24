@@ -33,7 +33,7 @@ $enable-negative-margins: true;
 
 // Global Styles
 body {
-  background-color: $light;
+  background-color: $body-color;
   font-family: 'Arial', sans-serif;
   color: $dark;
 }
@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: darken($primary, 10%);
+    color: darken($secondary, 10%);
   }
 }
   // *** Topbar Start ***/
@@ -96,7 +96,7 @@ a {
 
 .navbar {
     height: 100px;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid  #FFB524;;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -147,11 +147,6 @@ a {
 }
 
 // cart secrion start
-// Variables
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$white: #fff;
-$light-gray: #f8f9fa;
 
 // Mixins
 @mixin transition($property, $duration, $timing-function) {
@@ -206,7 +201,6 @@ $light-gray: #f8f9fa;
   }
   
   .dropdown-item {
-    d-flex: flex;
     align-items: center;
     padding: 0.5rem 1rem;
     
@@ -244,23 +238,23 @@ $light-gray: #f8f9fa;
 // Search bar styles
 .container-fluid {
   .bg-light {
-    background-color: $light-gray;
+    background-color: $light;
   }
   
   .form-control {
     &:focus {
       box-shadow: none;
-      border-color: $primary-color;
+      border-color: $primary;
     }
   }
   
   .btn-primary {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: $primary;
+    border-color: $secondary;
     
     &:hover {
-      background-color: darken($primary-color, 10%);
-      border-color: darken($primary-color, 10%);
+      background-color: darken($secondary, 10%);
+      border-color: darken( $primary, 10%);
     }
   }
 }
@@ -577,6 +571,7 @@ $link-decoration: none;
 
     p.mb-4 {
       line-height: 35px;
+      color: rgba(255, 255, 255, .5);
     }
 
     .btn-link {
@@ -605,7 +600,7 @@ $link-decoration: none;
     }
 
     .btn-primary {
-      background-color: #81C408;
+      background-color: $primary;
       border: none;
       color: $primary;
       border-radius: $secondary;
@@ -634,14 +629,14 @@ $link-decoration: none;
     transition: 0.5s;
 
     &:hover {
-      color: #FFB524;
+      color: $secondary;
     }
   }
 }
 
 // Back to Top Button
 .back-to-top {
-   background-color: $primary;
+   background-color: $secondary;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -654,7 +649,7 @@ $link-decoration: none;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 
   &:hover {
-    background-color: $secondary
+    background-color: $primary;
    
   }
 

@@ -1,0 +1,137 @@
+@import 'src/assets/custom-bootstrap';
+// Variables
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+
+$enable-responsive-font-sizes: true;
+
+$border-radius: 10px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+
+$link-decoration: none;
+
+$enable-negative-margins: true;
+
+.shoes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: $light;
+
+  h2 {
+    font-family: $headings-font-family;
+    font-size: 2rem;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+  }
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 200px;
+  background-color: $light;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+
+  h3 {
+    font-family: $headings-font-family;
+    font-size: 1.5rem;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+  }
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h4 {
+    font-family: $headings-font-family;
+    font-size: 1rem;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+  }
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.filter-group input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: $border-radius-sm;
+}
+
+.filter-group button {
+  padding: 5px 10px;
+  background-color: $primary;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  color: #fff;
+  font-weight: $headings-font-weight;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.shoe-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background-color: $light;
+  border-radius: $border-radius;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  h3 {
+    font-family: $headings-font-family;
+    font-size: 1.2rem;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $body-color;
+  }
+}

@@ -1,1 +1,54 @@
-<p>photographerspage works!</p>
+<div class="photoshoot-listings">
+    <div class="filters">
+        <div class="filters">
+            <label for="price-range">Price Range:</label>
+            <input type="range" id="price-range" min="0" max="10000" [(ngModel)]="selectedPriceRange">
+          
+            <label for="rating">Rating:</label>
+            <select id="rating" [(ngModel)]="selectedRating">
+              <option value="">All</option>
+              <option value="4">4 stars & up</option>
+              <option value="5">5 stars</option>
+            </select>
+          </div>
+          
+          <div class="sorting-options">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" [(ngModel)]="selectedSort">
+              <option value="price">Price</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+          
+      <!-- Filter options can be added here -->
+    </div>
+  
+    <div class="results">
+      <div class="sorting-options">
+        <!-- Sorting options can be added here -->
+      </div>
+  
+      <div class="photographers-grid">
+        <div class="photographer-card" *ngFor="let photographer of photographers">
+          <div class="photographer-image">
+            <img [src]="photographer.profileImage" [alt]="photographer.name">
+          </div>
+          <div class="photographer-info">
+            <h3 class="name">{{photographer.name}}</h3>
+            <p class="description">{{photographer.description}}</p>
+            <p class="price">{{photographer.price | currency:'KSh '}}</p>
+            <div class="rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-value">{{photographer.rating}}</span>
+              <a href="#" class="review-count">{{photographer.reviewCount}} Customer reviews</a>
+            </div>
+          </div>
+          <button class="contact-btn" (click)="showContact(photographer.id)">Show Contact</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="pagination">
+      <!-- Pagination controls can be added here -->
+    </div>
+  </div>
