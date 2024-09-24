@@ -1,74 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-</head>
-<body>
-
-   
-<div class="product">
-    <div>
-    <img class="thumbnail" src="Oversized.jpeg" alt="this is a thumbnail">
-</div>
-    
-    <div>
-    <p>Oversized T-shirt</p>
-    <p>Ksh.600</p>
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">sellers center</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Help center</a></small>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-location-dot"></i>Nchiiru</a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-dark navbar-expand-xl">
+                <a href="index.html" class="navbar-brand"><h1 class="text-primary m-0">Meru Market Place</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <form class="d-flex flex-grow-1 mx-xl-4 mb-2 mb-xl-0">
+                  <div class="input-group">
+                      <input class="form-control" type="search" placeholder="Search for products" aria-label="Search">
+                      <button class="btn btn-outline-primary" type="submit">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+                </form>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="index.html" class="nav-item nav-link active"><i class="fa-solid fa-house"></i>Home</a>
+                        <a href="shop.html" class="nav-item nav-link">Shop</a>
+                        <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="cartDropdown">
+                              <i class="fas fa-shopping-cart me-2"></i>Cart <span class="badge bg-primary">3</span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end rounded-0 rounded-bottom m-0" aria-labelledby="cartDropdown">
+                              <div class="cart-items" style="width: 300px; max-height: 300px; overflow-y: auto;">
+                                  <!-- Sample cart items -->
+                                  <div class="dropdown-item d-flex align-items-center py-2">
+                                      <img src="https://via.placeholder.com/50" alt="Product 1" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                      <div>
+                                          <h6 class="m-0">Product 1</h6>
+                                          <small class="text-muted">1 x $19.99</small>
+                                      </div>
+                                  </div>
+                                  <div class="dropdown-item d-flex align-items-center py-2">
+                                      <img src="https://via.placeholder.com/50" alt="Product 2" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                      <div>
+                                          <h6 class="m-0">Product 2</h6>
+                                          <small class="text-muted">2 x $24.99</small>
+                                      </div>
+                                  </div>
+                                  <div class="dropdown-item d-flex align-items-center py-2">
+                                      <img src="https://via.placeholder.com/50" alt="Product 3" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                      <div>
+                                          <h6 class="m-0">Product 3</h6>
+                                          <small class="text-muted">1 x $39.99</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="dropdown-divider"></div>
+                              <a href="cart.html" class="dropdown-item text-center">View More</a>
+                          </div>
+                      </div>
+                        <a href="contact.html" class="nav-item nav-link"><i class="fa-regular fa-user"></i> Account</a>
+                    </div>
+                    
+                </div>
+            </nav>
+        </div>
     </div>
-    <div>
-        <img class="icon" src="cart.svg" alt="this isa cart">
+    <!-- Navbar End -->
+     <!-- sidebar start -->
+     <div class="sidebar">
+        <div class="filter-header">
+          <i class="fas fa-filter"></i>
+          <h3>Search filter</h3>
+        </div>
+        <div class="filter-section">
+          <h4>Price</h4>
+          <div class="input-group">
+            <input type="number" class="form-control" placeholder="Min">
+            <input type="number" class="form-control" placeholder="Max">
+          </div>
+          <button class="btn btn-primary">Apply</button>
+        </div>
+        <div class="filter-section">
+          <h4>Category</h4>
+          <ul>
+            <li>Bakers & Casseroles</li>
+            <li>Bakeware Sets</li>
+            <li>Baking & Cookie Sheets</li>
+            <li>Baking & Pastry Utensils</li>
+          </ul>
+          <a href="#" class="view-more">View More</a>
+        </div>
+        <div class="filter-section">
+          <h4>Shipped From</h4>
+          <ul>
+            <li>Fulfilled By Kilimall</li>
+            <li>Oversea Shipment</li>
+            <li>Local Dispatch</li>
+          </ul>
+        </div>
+        <div class="filter-section">
+          <h4>Brand</h4>
+          <ul>
+            <li>Generic</li>
+            <li>Kitchen37</li>
+            <li>Signature</li>
+            <li>Redberry</li>
+          </ul>
+          <a href="#" class="view-more">View More</a>
+        </div>
+        <div class="filter-section">
+          <h4>Assembly Required</h4>
+          <ul>
+            <li>no</li>
+            <li>yes</li>
+          </ul>
+        </div>
+      </div>
+      <!-- sidebar end -->
+    <!-- topbar section start -->
+    <div class="filter-container">
+        <button class="filter-button active">Popular</button>
+        <button class="filter-button">Top Sale</button>
+        <button class="filter-button">Latest</button>
+        <div class="dropdown">
+          <button class="filter-button dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Price <i class="fa fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="priceDropdown">
+            <li><a class="dropdown-item" href="#">Low to High</a></li>
+            <li><a class="dropdown-item" href="#">High to Low</a></li>
+          </ul>
+        </div>
+        <div class="pagination">
+          <span class="current-page">1 / 278</span>
+          <button class="pagination-button prev"><i class="fa fa-chevron-left"></i></button>
+          <button class="pagination-button next"><i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div>
+    <!-- topbar section end -->
+ <!-- Footer Start -->
+ <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+      <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <a href="#">
+                    <h1 class="text-primary mb-0">Meru</h1>
+                    <p class="text-secondary mb-0">Market Place</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+              <div class="position-relative mx-auto">
+                <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
+                <button ype="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white border-success" style="top: 0; right: 0;">Subscribe</button>
+            </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="d-flex justify-content-end pt-3 footer-item">
+                    <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle footer-item" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle footer-item" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle footer-item" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-secondary btn-md-square rounded-circle footer-item" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+      </div>
+        <div class="row g-5">
+            <!-- About Us Section -->
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                  <h4 class="text-light mb-3">Shopping Guide</h4>
+                  <a class="btn-link" href="#">How to pay on campus mart</a>
+                  <a class="btn-link" href="#">Flash Sales</a>
+                  <a class="btn-link" href="#">How to Apply for Refunds</a>
+                  <a class="btn-link " href="#">Delivery Times</a>
+                  <a class="btn-link " href="#">Forgot Password?</a>
+  
+              </div>
+            </div>
+            
+  
+            <!-- Quick Links Section -->
+            
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                  <h4 class="text-light mb-3">Quick Links</h4>
+                  <a class="btn-link" href="#">About Us</a>
+                  <a class="btn-link" href="#">Contact Us</a>
+                  <a class="btn-link" href="#">Terms & Conditions</a>
+                  <a class="btn-link " href="#">Privacy Policy</a> 
+  
+              </div>
+            </div>
+            
+            <!-- My account section -->
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                  <h4 class="text-light mb-3">Account</h4>
+                  <a class="btn-link" href="">My Account</a>
+                  <a class="btn-link" href="">Shop details</a>
+                  <a class="btn-link" href="">Shopping Cart</a>
+  
+              </div>
+          </div>
+  
+            <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6 ">
+                <h4 class="text-start mb-3">Contact Us</h4>
+                <p>Nchiiru</p>
+                <p>+123 456 7890</p>
+                <p>info&#64;campusmarketplace.com</p>
+                <p>Payment Accepted</p>
+                <img src="./img/payment.png" class="img-fluid" alt="">
+              
+            </div>
+        </div>
     </div>
-
-</div>
-
-<div class="product">
-    <div>
-    <img class="thumbnail" src="Oversized.jpeg" alt="this is a thumbnail">
-</div>
-    
-    <div>
-    <p>Oversized T-shirt</p>
-    <p>Ksh.600</p>
+  </div>
+  <!-- Footer End -->
+  <!-- Copyright start -->
+  <div class="copyright bg-dark py-4">
+    <div class="container text-center text-start ">
+      <p class="footer-links mb-3">
+        <a href="#" class="text-white">Campus Marketplace </a>
+        <span>|</span>
+        <a href="#" class="text-white">Seller </a>
+        <span>|</span>
+        <a href="#" class="text-white">Mobile App</a>
+      </p>
+      <p>&copy; 2024 Campus Marketplace, All Rights Reserved.</p>
     </div>
-    <div>
-        <img class="icon" src="cart.svg" alt="this isa cart">
-    </div>
-
-</div>
-
-<div class="product">
-    <div>
-    <img class="thumbnail" src="Oversized.jpeg" alt="this is a thumbnail">
-</div>
-    
-    <div>
-    <p>Oversized T-shirt</p>
-    <p>Ksh.600</p>
-    </div>
-    <div>
-        <img class="icon" src="cart.svg" alt="this isa cart">
-    </div>
-
-</div>
-<div class="product">
-    <div>
-    <img class="thumbnail" src="Oversized.jpeg" alt="this is a thumbnail">
-</div>
-    
-    <div>
-    <p>Oversized T-shirt</p>
-    <p>Ksh.600</p>
-    </div>
-    <div>
-        <img class="icon" src="cart.svg" alt="this isa cart">
-    </div>
-
-</div>
-
-</body>
-</html>
-
+  </div>
+  <!-- Footer start-->
+  
+  <!-- Back to Top -->
+  <a a href="#" class="btn border-3  rounded-circle back-to-top"><i class="fa-solid fa-arrow-up"></i></a> 
