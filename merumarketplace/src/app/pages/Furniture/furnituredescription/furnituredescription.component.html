@@ -1,57 +1,62 @@
-<!-- furniture-product.component.html -->
 <div class="product-container">
-    <div class="product-image">
-      <img src="path_to_your_furniture_image.jpg" alt="Modern Leather Sofa">
+  <div class="product-image">
+    <img src="path_to_your_furniture_image.jpg" alt="Modern Leather Sofa">
+  </div>
+  <div class="product-details">
+    <h1>{{ product.name }}</h1>
+    <p class="description">{{ product.description }}</p>
+    <div class="rating">
+      <span class="stars">
+        <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+      </span>
+      <span class="rating-value">{{ product.rating }}</span>
+      <span class="reviews">{{ product.reviews }} Customer reviews</span>
     </div>
-    <div class="product-details">
-      <h1>{{ product.name }}</h1>
-      <p class="description">{{ product.description }}</p>
-      <div class="rating">
-        <span class="stars">
-          <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
-        </span>
-        <span class="rating-value">{{ product.rating }}</span>
-        <span class="reviews">{{ product.reviews }} Customer reviews</span>
+    <div class="price">
+      <span class="current-price">${{ product.price.toFixed(2) }}</span>
+      <span class="original-price">${{ product.originalPrice.toFixed(2) }}</span>
+      <span class="discount">(-{{ product.discount }}%)</span>
+    </div>
+    <div class="product-info">
+      <p><strong>Material:</strong> {{ product.material }}</p>
+      <p><strong>Dimensions:</strong> {{ product.dimensions }}</p>
+    </div>
+    <div class="color-options">
+      <span>Color:</span>
+      <div class="color-swatches">
+        <button 
+          *ngFor="let color of product.color" 
+          [class.selected]="color === selectedColor"
+          (click)="selectColor(color)"
+          [style.backgroundColor]="color.toLowerCase()"
+        ></button>
       </div>
-      <div class="price">
-        <span class="current-price">${{ product.price.toFixed(2) }}</span>
-        <span class="original-price">${{ product.originalPrice.toFixed(2) }}</span>
-        <span class="discount">(-{{ product.discount }}%)</span>
-      </div>
-      <div class="product-info">
-        <p><strong>Material:</strong> {{ product.material }}</p>
-        <p><strong>Dimensions:</strong> {{ product.dimensions }}</p>
-      </div>
-      <div class="color-options">
-        <span>Color:</span>
-        <div class="color-swatches">
-          <button 
-            *ngFor="let color of product.color" 
-            [class.selected]="color === selectedColor"
-            (click)="selectColor(color)"
-            [style.backgroundColor]="color.toLowerCase()"
-          ></button>
-        </div>
-        <span class="selected-color">{{ selectedColor }}</span>
-      </div>
-      <div class="stock-info" [ngClass]="{'in-stock': product.inStock, 'out-of-stock': !product.inStock}">
-        {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
-      </div>
-      <div class="delivery-info">
-        <i class="fas fa-truck"></i>
-        <span>{{ product.deliveryTime }}</span>
-      </div>
-      <div class="quantity">
-        <span>Quantity</span>
-        <button (click)="decrementQuantity()">-</button>
-        <input type="number" [value]="quantity" readonly>
-        <button (click)="incrementQuantity()">+</button>
-      </div>
-      <div class="actions">
-        <button class="add-to-cart">Add to Cart</button>
-        <button class="buy-now">Buy Now</button>
-        <button class="favorite"><i class="far fa-heart"></i></button>
-        <button class="share"><i class="fas fa-share"></i></button>
-      </div>
+      <span class="selected-color">{{ selectedColor }}</span>
+    </div>
+    <div class="stock-info">
+      <ng-container *ngIf="product.inStock; else outOfStockTemplate">
+        <span class="in-stock">In Stock</span>
+      </ng-container>
+      <ng-template #outOfStockTemplate>
+        <span class="out-of-stock">Out of Stock</span>
+      </ng-template>
+    </div>
+    
+    <div class="delivery-info">
+      <i class="fas fa-truck"></i>
+      <span>{{ product.deliveryTime }}</span>
+    </div>
+    <div class="quantity">
+      <span>Quantity</span>
+      <button (click)="decrementQuantity()">-</button>
+      <input type="number" [value]="quantity" readonly>
+      <button (click)="incrementQuantity()">+</button>
+    </div>
+    <div class="actions">
+      <button class="add-to-cart">Add to Cart</button>
+      <button class="buy-now">Buy Now</button>
+      <button class="favorite"><i class="far fa-heart"></i></button>
+      <button class="share"><i class="fas fa-share"></i></button>
     </div>
   </div>
+</div>

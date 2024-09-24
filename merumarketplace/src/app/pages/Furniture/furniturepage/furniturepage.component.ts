@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-furniture',
-  templateUrl: './furniture.component.html',
-  styleUrl: './furniture.component.scss'
+  templateUrl: './furniturepage.component.html',
+  styleUrls: ['./furniturepage.component.scss']
 })
-export class FurnitureComponent {
-
-}
+export class FurnitureComponent {}
 
 interface Product {
   id: number;
@@ -20,9 +18,14 @@ interface Product {
   category: string;
 }
 
+@Component({
+  selector: 'app-furniture-page',
+  templateUrl: './furniturepage.component.html',
+  styleUrls: ['./furniturepage.component.scss']
+})
 export class FurniturePageComponent implements OnInit {
-  minPrice: number;
-  maxPrice: number;
+  minPrice: number | undefined;
+  maxPrice: number | undefined;
   categories: { name: string; checked: boolean }[] = [
     { name: 'Bed Pillows', checked: false },
     { name: 'Duvet Cover Sets', checked: false },
@@ -49,7 +52,6 @@ export class FurniturePageComponent implements OnInit {
   productsPerPage = 8;
 
   products: Product[] = [
-    // Add more product data here
     {
       id: 1,
       name: 'New Solar Light PIR Motion Sensor Garden Outdoor LED Street Lamp',
@@ -60,7 +62,7 @@ export class FurniturePageComponent implements OnInit {
       shipper: 'Fulfilled By Kilimall',
       category: 'Outdoor'
     },
-    // ... more products
+    // ... Add more product data here
   ];
 
   displayedProducts: Product[] = [];

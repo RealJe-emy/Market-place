@@ -1,27 +1,3 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-furnituredescription',
-  templateUrl: './furnituredescription.component.html',
-  styleUrl: './furnituredescription.component.scss'
-})
-export class FurnituredescriptionComponent {
-product: any;
-selectedColor: any;
-selectColor(_t27: any) {
-throw new Error('Method not implemented.');
-}
-decrementQuantity() {
-throw new Error('Method not implemented.');
-}
-quantity: any;
-incrementQuantity() {
-throw new Error('Method not implemented.');
-}
-
-}
-
-// furniture-product.component.ts
 import { Component, OnInit } from '@angular/core';
 
 interface FurnitureProduct {
@@ -41,8 +17,8 @@ interface FurnitureProduct {
 
 @Component({
   selector: 'app-furniture-product',
-  templateUrl: './furniture-product.component.html',
-  styleUrls: ['./furniture-product.component.scss']
+  templateUrl: './furnituredescription.component.html',
+  styleUrls: ['./furnituredescription.component.scss']
 })
 export class FurnitureProductComponent implements OnInit {
   product: FurnitureProduct = {
@@ -60,24 +36,24 @@ export class FurnitureProductComponent implements OnInit {
     deliveryTime: 'Ships within 5-7 business days'
   };
 
-  selectedColor: string = this.product.color[0];
-  quantity: number = 1;
+  selectedColor: string = this.product.color[0]; // Initialize with the first color
+  quantity: number = 1; // Default quantity
 
   constructor() { }
 
   ngOnInit(): void { }
 
   selectColor(color: string): void {
-    this.selectedColor = color;
+    this.selectedColor = color; // Set the selected color
   }
 
   incrementQuantity(): void {
-    this.quantity++;
+    this.quantity++; // Increase quantity
   }
 
   decrementQuantity(): void {
     if (this.quantity > 1) {
-      this.quantity--;
+      this.quantity--; // Decrease quantity, ensuring it doesn't go below 1
     }
   }
 }
