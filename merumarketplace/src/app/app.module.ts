@@ -23,6 +23,8 @@ import { DrinksdescriptionpageComponent } from './pages/Drinks/drinksdescription
 import { ElectronicspageComponent } from './pages/Electronics/electronicspage/electronicspage.component';
 import { ElectronicsdescriptionComponent } from './pages/Electronics/electronicsdescription/electronicsdescription.component';
 import { FurnituredescriptionComponent } from './pages/Furniture/furnituredescription/furnituredescription.component';
+import { SecondhanddescriptionComponent } from './pages/SecondHand/secondhanddescription/secondhanddescription.component';
+import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secondhandpage.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FurnituredescriptionComponent } from './pages/Furniture/furnituredescri
     DrinksdescriptionpageComponent,
     ElectronicspageComponent,
     ElectronicsdescriptionComponent,
-    FurnituredescriptionComponent
+    FurnituredescriptionComponent,
+    SecondhanddescriptionComponent,
+    SecondhandpageComponent
   ],
   imports: [
     BrowserModule,
