@@ -1,0 +1,150 @@
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+.furniture-page {
+    display: flex;
+    font-family: Arial, sans-serif;
+  
+    .sidebar {
+      width: 250px;
+      padding: 20px;
+      background-color: $light;
+  
+      h3 {
+        margin-top: 0;
+      }
+  
+      .filter-section {
+        margin-bottom: 20px;
+  
+        h4 {
+          margin-bottom: 10px;
+        }
+  
+        .price-inputs {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+  
+          input {
+            width: 70px;
+            padding: 5px;
+          }
+  
+          span {
+            margin: 0 10px;
+          }
+        }
+  
+        button {
+          background-color: $primary;
+          color: $dark;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+        }
+  
+        ul {
+          list-style-type: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 5px;
+          }
+        }
+  
+        a {
+          color: $dark;
+          text-decoration: none;
+        }
+      }
+    }
+  
+    .main-content {
+      flex: 1;
+      padding: 20px;
+  
+      .sort-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        button {
+          background-color: $primary;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+  
+          &.active {
+            background-color: $secondary;
+            color: $dark;
+          }
+        }
+  
+        .pagination {
+          display: flex;
+          align-items: center;
+  
+          button {
+            background-color: $light;
+            color: $dark;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+  
+            &:disabled {
+              background-color: $dark;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+  
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+  
+        .product-card {
+          border: 1px solid #e0e0e0;
+          padding: 10px;
+          text-align: center;
+  
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+  
+          h3 {
+            margin: 10px 0;
+            font-size: 16px;
+          }
+  
+          .price {
+            font-weight: bold;
+            color: #e74c3c;
+          }
+  
+          .rating {
+            .stars {
+              color: $secondary;
+            }
+  
+            .review-count {
+              color: $dark;
+              font-size: 12px;
+            }
+          }
+  
+          .shipper {
+            font-size: 12px;
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
