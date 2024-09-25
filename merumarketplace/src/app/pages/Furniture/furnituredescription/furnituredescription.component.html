@@ -1,62 +1,85 @@
-<div class="product-container">
-  <div class="product-image">
-    <img src="path_to_your_furniture_image.jpg" alt="Modern Leather Sofa">
-  </div>
-  <div class="product-details">
-    <h1>{{ product.name }}</h1>
-    <p class="description">{{ product.description }}</p>
-    <div class="rating">
-      <span class="stars">
-        <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
-      </span>
-      <span class="rating-value">{{ product.rating }}</span>
-      <span class="reviews">{{ product.reviews }} Customer reviews</span>
-    </div>
-    <div class="price">
-      <span class="current-price">${{ product.price.toFixed(2) }}</span>
-      <span class="original-price">${{ product.originalPrice.toFixed(2) }}</span>
-      <span class="discount">(-{{ product.discount }}%)</span>
-    </div>
-    <div class="product-info">
-      <p><strong>Material:</strong> {{ product.material }}</p>
-      <p><strong>Dimensions:</strong> {{ product.dimensions }}</p>
-    </div>
-    <div class="color-options">
-      <span>Color:</span>
-      <div class="color-swatches">
-        <button 
-          *ngFor="let color of product.color" 
-          [class.selected]="color === selectedColor"
-          (click)="selectColor(color)"
-          [style.backgroundColor]="color.toLowerCase()"
-        ></button>
+<!-- product-page.component.html -->
+<div class="product-page">
+  <nav class="breadcrumb">
+    <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+      <a *ngIf="!last" href="#">{{crumb}}</a>
+      <span *ngIf="!last"> &gt; </span>
+      <span *ngIf="last">{{crumb}}</span>
+    </ng-container>
+    <span> &gt; SKU ID: {{product.id}}</span>
+  </nav>
+  
+  <div class="product-container">
+    <div class="product-image">
+      <img [src]="product.mainImage" [alt]="product.name">
+      <div class="thumbnail-list">
+        <img *ngFor="let thumb of product.thumbnails" [src]="thumb" [alt]="product.name + ' thumbnail'">
       </div>
-      <span class="selected-color">{{ selectedColor }}</span>
-    </div>
-    <div class="stock-info">
-      <ng-container *ngIf="product.inStock; else outOfStockTemplate">
-        <span class="in-stock">In Stock</span>
-      </ng-container>
-      <ng-template #outOfStockTemplate>
-        <span class="out-of-stock">Out of Stock</span>
-      </ng-template>
     </div>
     
-    <div class="delivery-info">
-      <i class="fas fa-truck"></i>
-      <span>{{ product.deliveryTime }}</span>
-    </div>
-    <div class="quantity">
-      <span>Quantity</span>
-      <button (click)="decrementQuantity()">-</button>
-      <input type="number" [value]="quantity" readonly>
-      <button (click)="incrementQuantity()">+</button>
-    </div>
-    <div class="actions">
-      <button class="add-to-cart">Add to Cart</button>
-      <button class="buy-now">Buy Now</button>
-      <button class="favorite"><i class="far fa-heart"></i></button>
-      <button class="share"><i class="fas fa-share"></i></button>
+    <div class="product-details">
+      <h1>{{product.name}}</h1>
+      <p>{{product.description}}</p>
+      
+      <div class="rating">
+        <span class="stars">★★★★☆</span> <!-- You might want to create a separate star rating component -->
+        <span class="rating-value">{{product.rating}}</span>
+        <a href="#" class="review-count">{{product.reviewCount}} Customer reviews</a>
+      </div>
+      
+      <div class="sale-banner">
+        <span class="sale-tag">Super Brand Sale</span>
+        <span class="sale-date">Sep.2nd~30th</span>
+      </div>
+      
+      <div class="price">
+        <span class="current-price">KSh {{product.price}}</span>
+        <span class="original-price">KSh {{product.originalPrice}}</span>
+        <span class="discount">{{product.discount}}% off</span>
+      </div>
+      
+      <div class="promo">
+        <a href="#">Over KSh3000 Get 100 Off &gt;</a>
+      </div>
+      
+      <div class="service">
+        <span>Services:</span>
+        <span>Fulfilled By Kilimall</span>
+      </div>
+      
+      <div class="size-selection">
+        <label>Size:</label>
+        <a href="#">Size Guide</a>
+        <div class="size-options">
+          <button *ngFor="let size of product.sizes" [disabled]="!size.available">{{size.size}}</button>
+        </div>
+      </div>
+      
+      <div class="color-selection">
+        <label>Color:</label>
+        <div class="color-options">
+          <button *ngFor="let color of product.colors" [style.background-color]="color.code">{{color.name}}</button>
+        </div>
+      </div>
+      
+      <div class="delivery-info">
+        <span>Delivery Information:</span>
+        <span>Ships from Nairobi, arrives in Municipality within 3-6 workdays.</span>
+      </div>
+      
+      <div class="quantity">
+        <label>Quantity</label>
+        <button (click)="updateQuantity(-1)">-</button>
+        <input type="number" [(ngModel)]="product.quantity" min="1">
+        <button (click)="updateQuantity(1)">+</button>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+        <button class="buy-now" (click)="buyNow()">Buy Now</button>
+        <button class="favorite">♡</button>
+        <button class="share">Share</button>
+      </div>
     </div>
   </div>
 </div>

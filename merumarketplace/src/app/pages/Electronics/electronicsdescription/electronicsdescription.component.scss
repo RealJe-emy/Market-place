@@ -1,146 +1,84 @@
-/* product.component.scss */
-.product-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+// @import 'src\assets\custom-bootstrap.scss';
+
+// Colors
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+// Fonts
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+
+// Typography
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+$enable-responsive-font-sizes: true;
+
+// Borders
+$border-radius: 10px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+
+// Links
+$link-decoration: none;
+
+// Margins
+$enable-negative-margins: true;
+
+// Global Styles
+body {
+  font-family: $font-family-base;
+  color: $body-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  color: $headings-color;
+  font-weight: $headings-font-weight;
+}
+
+.display {
+  font-weight: $display-font-weight;
+}
+
+a {
+  text-decoration: $link-decoration;
+  color: $primary;
+
+  &:hover {
+    color: darken($primary, 10%);
   }
-  
-  .product-image {
-    flex: 1;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
-  
-  .product-details {
-    flex: 1;
-    padding-left: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .rating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  
-    .stars {
-      color: #f8ce0b;
-      margin-right: 5px;
-    }
-  
-    .rating-value {
-      font-weight: bold;
-      margin-right: 5px;
-    }
-  
-    .reviews {
-      color: #007185;
-    }
-  }
-  
-  .price {
-    margin-bottom: 15px;
-  
-    .current-price {
-      font-size: 28px;
-      font-weight: bold;
-      color: #B12704;
-    }
-  
-    .original-price {
-      text-decoration: line-through;
-      margin-left: 10px;
-    }
-  
-    .discount {
-      color: #B12704;
-      margin-left: 5px;
-    }
-  }
-  
-  .product-options {
-    margin-bottom: 15px;
-  
-    .color, .size {
-      margin-bottom: 10px;
-    }
-  
-    button {
-      background-color: #fff;
-      border: 1px solid #D5D9D9;
-      border-radius: 8px;
-      padding: 5px 10px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #F7FAFA;
-      }
+}
+
+.btn {
+  border-radius: $border-radius;
+
+  &.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
     }
   }
-  
-  .delivery-info {
-    margin-bottom: 15px;
-    color: #007600;
-  }
-  
-  .quantity {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  
-    input {
-      width: 40px;
-      text-align: center;
-      margin: 0 5px;
-    }
-  
-    button {
-      background-color: #f0f2f2;
-      border: 1px solid #D5D9D9;
-      padding: 5px 10px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #e7e9ec;
-      }
+
+  &.btn-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+      border-color: darken($secondary, 10%);
     }
   }
-  
-  .actions {
-    display: flex;
-    gap: 10px;
-  
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-  
-    .add-to-cart {
-      background-color: #FFD814;
-      &:hover {
-        background-color: #F7CA00;
-      }
-    }
-  
-    .buy-now {
-      background-color: #FFA41C;
-      &:hover {
-        background-color: #FF8F00;
-      }
-    }
-  
-    .favorite, .share {
-      background-color: #fff;
-      border: 1px solid #D5D9D9;
-      padding: 10px;
-    }
-  }
+}
+
+.product-page {
+  // Your product page specific styles go here
+}

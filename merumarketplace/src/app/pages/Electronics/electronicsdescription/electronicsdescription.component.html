@@ -1,47 +1,85 @@
-<!-- product.component.html -->
-<div class="product-container">
+<!-- product-page.component.html -->
+<div class="product-page">
+  <nav class="breadcrumb">
+    <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+      <a *ngIf="!last" href="#">{{crumb}}</a>
+      <span *ngIf="!last"> &gt; </span>
+      <span *ngIf="last">{{crumb}}</span>
+    </ng-container>
+    <span> &gt; SKU ID: {{product.id}}</span>
+  </nav>
+  
+  <div class="product-container">
     <div class="product-image">
-      <img src="path_to_your_image.jpg" alt="Product Image">
+      <img [src]="product.mainImage" [alt]="product.name">
+      <div class="thumbnail-list">
+        <img *ngFor="let thumb of product.thumbnails" [src]="thumb" [alt]="product.name + ' thumbnail'">
+      </div>
     </div>
+    
     <div class="product-details">
-      <h1>{{ product.name }}</h1>
+      <h1>{{product.name}}</h1>
+      <p>{{product.description}}</p>
+      
       <div class="rating">
-        <span class="stars">
-          <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
-        </span>
-        <span class="rating-value">{{ product.rating }}</span>
-        <span class="reviews">{{ product.reviews }} Customer reviews</span>
+        <span class="stars">★★★★☆</span> <!-- You might want to create a separate star rating component -->
+        <span class="rating-value">{{product.rating}}</span>
+        <a href="#" class="review-count">{{product.reviewCount}} Customer reviews</a>
       </div>
+      
+      <div class="sale-banner">
+        <span class="sale-tag">Super Brand Sale</span>
+        <span class="sale-date">Sep.2nd~30th</span>
+      </div>
+      
       <div class="price">
-        <span class="current-price">KSh {{ product.price }}</span>
-        <span class="original-price">KSh{{ product.originalPrice }}</span>
-        <span class="discount">(-{{ product.discount }}%)</span>
+        <span class="current-price">KSh {{product.price}}</span>
+        <span class="original-price">KSh {{product.originalPrice}}</span>
+        <span class="discount">{{product.discount}}% off</span>
       </div>
-      <div class="product-options">
-        <div class="color">
-          <span>Color:</span>
-          <button class="color-option">{{ product.color }}</button>
-        </div>
-        <div class="size">
-          <span>Size:</span>
-          <button class="size-option">{{ product.size }}</button>
+      
+      <div class="promo">
+        <a href="#">Over KSh3000 Get 100 Off &gt;</a>
+      </div>
+      
+      <div class="service">
+        <span>Services:</span>
+        <span>Fulfilled By Kilimall</span>
+      </div>
+      
+      <div class="size-selection">
+        <label>Size:</label>
+        <a href="#">Size Guide</a>
+        <div class="size-options">
+          <button *ngFor="let size of product.sizes" [disabled]="!size.available">{{size.size}}</button>
         </div>
       </div>
+      
+      <div class="color-selection">
+        <label>Color:</label>
+        <div class="color-options">
+          <button *ngFor="let color of product.colors" [style.background-color]="color.code">{{color.name}}</button>
+        </div>
+      </div>
+      
       <div class="delivery-info">
-        <i class="fas fa-truck"></i>
-        <span>{{ product.deliveryInfo }}</span>
+        <span>Delivery Information:</span>
+        <span>Ships from Nairobi, arrives in Municipality within 3-6 workdays.</span>
       </div>
+      
       <div class="quantity">
-        <span>Quantity</span>
-        <button (click)="decrementQuantity()">-</button>
-        <input type="number" [value]="quantity" readonly>
-        <button (click)="incrementQuantity()">+</button>
+        <label>Quantity</label>
+        <button (click)="updateQuantity(-1)">-</button>
+        <input type="number" [(ngModel)]="product.quantity" min="1">
+        <button (click)="updateQuantity(1)">+</button>
       </div>
-      <div class="actions">
-        <button class="add-to-cart">Add to Cart</button>
-        <button class="buy-now">Buy Now</button>
-        <button class="favorite"><i class="far fa-heart"></i></button>
-        <button class="share"><i class="fas fa-share"></i></button>
+      
+      <div class="action-buttons">
+        <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+        <button class="buy-now" (click)="buyNow()">Buy Now</button>
+        <button class="favorite">♡</button>
+        <button class="share">Share</button>
       </div>
     </div>
   </div>
+</div>
