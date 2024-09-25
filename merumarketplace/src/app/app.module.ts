@@ -8,7 +8,6 @@ import { AngularFireModule } from '@angular/fire/compat'; // Adjusted import
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { CommonModule } from '@angular/common';
 
 import { environment } from '../envirornments/environment.pro';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,35 +16,68 @@ import { LoginComponent } from './Authentication/login/login.component';
 import { LandingComponent } from './Authentication/landing/landing.component';
 import { RegistrationComponent } from './Authentication/registration/registration.component';
 import { ProductspageComponent } from './pages/productspage/productspage.component';
-
+import { MenshoespageComponent } from './pages/Men shoes/menshoespage/menshoespage.component';
+import { MenshoesdescriptionpageComponent } from './pages/Men shoes/menshoesdescriptionpage/menshoesdescriptionpage.component';
 import { DrinkspageComponent } from './pages/Drinks/drinkspage/drinkspage.component';
+<<<<<<< Updated upstream
+import { DrinksdescriptionpageComponent } from './pages/Drinks/drinksdescriptionpage/drinksdescriptionpage.component';
+import { ElectronicspageComponent } from './pages/Electronics/electronicspage/electronicspage.component';
+import { ElectronicsdescriptionComponent } from './pages/Electronics/electronicsdescription/electronicsdescription.component';
+import { FurnituredescriptionComponent } from './pages/Furniture/furnituredescription/furnituredescription.component';
+import { SecondhanddescriptionComponent } from './pages/SecondHand/secondhanddescription/secondhanddescription.component';
+import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secondhandpage.component';
+import { LaundryserviceComponent } from './pages/Laundry/laundryservice/laundryservice.component';
+import { LaundrydescriptionComponent } from './pages/Laundry/laundrydescription/laundrydescription.component';
+import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.component';
+import { WifidescriptionComponent } from './pages/WiFi/wifidescription/wifidescription.component';
+import { GasserviceComponent } from './pages/Gas/gasservice/gasservice.component';
+import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescription.component';
+=======
 import { ProductPageComponent } from './pages/kitchen/kitchendescription/kitchendescription.component';
+import { PhotographersdescriptionComponent } from './pages/photoshoot/photographersdescription/photographersdescription.component';
 
 
 
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
+    AppComponent,
+    LoginComponent,
     LandingComponent,
-    LoginComponent ,
     RegistrationComponent,
-    ProductPageComponent,
     ProductspageComponent,
+    MenshoespageComponent,
+    MenshoesdescriptionpageComponent,
     DrinkspageComponent,
+<<<<<<< Updated upstream
+    DrinksdescriptionpageComponent,
+    ElectronicspageComponent,
+    ElectronicsdescriptionComponent,
+    FurnituredescriptionComponent,
+    SecondhanddescriptionComponent,
+    SecondhandpageComponent,
+    LaundryserviceComponent,
+    LaundrydescriptionComponent,
+    WifiserviceComponent,
+    WifidescriptionComponent,
+    GasserviceComponent,
+    GasdescriptionComponent
+=======
+    PhotographersdescriptionComponent,
 
    
 
 
 
+>>>>>>> Stashed changes
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    
     AngularFireModule.initializeApp(environment.firebaseConfig), // Initialize Firebase
     AngularFireAuthModule,
     AngularFireDatabaseModule,
