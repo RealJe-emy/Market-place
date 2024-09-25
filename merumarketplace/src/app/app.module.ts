@@ -31,6 +31,8 @@ import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.compo
 import { WifidescriptionComponent } from './pages/WiFi/wifidescription/wifidescription.component';
 import { GasserviceComponent } from './pages/Gas/gasservice/gasservice.component';
 import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescription.component';
+import { GamingpageComponent } from './pages/Gaming/gamingpage/gamingpage.component';
+import { GamingdescriptionComponent } from './pages/Gaming/gamingdescription/gamingdescription.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescripti
     WifiserviceComponent,
     WifidescriptionComponent,
     GasserviceComponent,
-    GasdescriptionComponent
+    GasdescriptionComponent,
+    GamingpageComponent,
+    GamingdescriptionComponent
   ],
   imports: [
     BrowserModule,

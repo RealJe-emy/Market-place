@@ -1,5 +1,5 @@
-/* laundry-service.component.scss */
-.laundry-service-card {
+/* wifi-service.component.scss */
+.wifi-service-card {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -63,7 +63,7 @@
   }
   
   @media (max-width: 480px) {
-    .laundry-service-card {
+    .wifi-service-card {
       max-width: 100%;
       margin: 20px 10px;
     }

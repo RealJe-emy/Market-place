@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SecondhandItem } from '../models/secondhand-item.model';
 
+
+
 export interface SecondhandItem {
   id: number;
   name: string;
@@ -13,8 +15,8 @@ export interface SecondhandItem {
 
 @Component({
   selector: 'app-secondhand-items',
-  templateUrl: './secondhand-items.component.html',
-  styleUrls: ['./secondhand-items.component.scss']
+  templateUrl: './secondhandpage.component.html',
+  styleUrls: ['./secondhandpage.component.scss']
 })
 export class SecondhandItemsComponent implements OnInit {
   secondhandItems: SecondhandItem[] = [

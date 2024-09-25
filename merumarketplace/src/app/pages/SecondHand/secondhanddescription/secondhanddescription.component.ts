@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-secondhanddescription',
@@ -10,7 +10,6 @@ export class SecondhanddescriptionComponent {
 }
 
 // secondhand-item.component.ts
-import { Component, OnInit } from '@angular/core';
 
 interface SecondhandItem {
   name: string;
@@ -30,13 +29,13 @@ interface SecondhandItem {
 
 @Component({
   selector: 'app-secondhand-item',
-  templateUrl: './secondhand-item.component.html',
-  styleUrls: ['./secondhand-item.component.scss']
+  templateUrl: './secondhanddescription.component.html',
+  styleUrls: ['./secondhanddescription.component.scss']
 })
 export class SecondhandItemComponent implements OnInit {
   item: SecondhandItem = {
     name: 'Vintage Leather Armchair',
-    category: 'Furniture',
+    category: 'Secondhand',
     description: 'Classic mid-century modern leather armchair in good condition',
     condition: 'Good',
     age: '20 years',

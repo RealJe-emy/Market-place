@@ -1,13 +1,4 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-furniture',
-  templateUrl: './furniture.component.html',
-  styleUrl: './furniture.component.scss'
-})
-export class FurnitureComponent {
-
-}
+import { Component, OnInit } from '@angular/core';
 
 interface Product {
   id: number;
@@ -20,7 +11,12 @@ interface Product {
   category: string;
 }
 
-export class FurniturePageComponent implements OnInit {
+@Component({
+  selector: 'app-furniture',
+  templateUrl: './furniturepage.component.html',
+  styleUrls: ['./furniturepage.component.scss']
+})
+export class FurnitureComponent implements OnInit {
   minPrice: number;
   maxPrice: number;
   categories: { name: string; checked: boolean }[] = [
@@ -89,6 +85,7 @@ export class FurniturePageComponent implements OnInit {
     });
 
     this.sortProducts(this.sortBy);
+    this.updateDisplayedProducts();
   }
 
   sortProducts(criteria: string): void {
@@ -126,7 +123,7 @@ export class FurniturePageComponent implements OnInit {
 
   updateDisplayedProducts(): void {
     const startIndex = (this.currentPage - 1) * this.productsPerPage;
-    this.displayedProducts = this.products.slice(startIndex, startIndex + this.productsPerPage);
+    this.displayedProducts = this.displayedProducts.slice(startIndex, startIndex + this.productsPerPage);
   }
 
   toggleCategoryView(): void {
