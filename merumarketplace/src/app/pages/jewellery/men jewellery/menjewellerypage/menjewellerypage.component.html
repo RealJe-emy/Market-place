@@ -1,1 +1,68 @@
-<p>menjewellerypage works!</p>
+<div class="container">
+    <nav class="breadcrumb">
+      <a href="#">Home</a> &gt; {{ searchResultTitle }}
+    </nav>
+    
+    <div class="content">
+      <aside class="sidebar">
+        <h2>Search filter</h2>
+        
+        <section class="filter-section">
+          <h3>Price</h3>
+          <input type="number" [(ngModel)]="minPrice" placeholder="Min">
+          <input type="number" [(ngModel)]="maxPrice" placeholder="Max">
+          <button (click)="applyPriceFilter()">Apply</button>
+        </section>
+        
+        <section class="filter-section">
+          <h3>Category</h3>
+          <ul>
+            <li *ngFor="let category of categories">
+              <a href="#" (click)="filterByCategory(category)">{{ category }}</a>
+            </li>
+          </ul>
+        </section>
+        
+        <section class="filter-section">
+          <h3>Material</h3>
+          <ul>
+            <li *ngFor="let material of materials">
+              <a href="#" (click)="filterByMaterial(material)">{{ material }}</a>
+            </li>
+          </ul>
+        </section>
+        
+        <section class="filter-section">
+          <h3>Brand</h3>
+          <ul>
+            <li *ngFor="let brand of brands">
+              <a href="#" (click)="filterByBrand(brand)">{{ brand }}</a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+      
+      <main class="product-grid">
+        <div class="sort-options">
+          <button *ngFor="let option of sortOptions" (click)="sortBy(option)">
+            {{ option }}
+          </button>
+        </div>
+        
+        <div class="products">
+          <div *ngFor="let product of products" class="product-item">
+            <img [src]="product.imageUrl" [alt]="product.name">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.price | currency }}</p>
+            <!-- Add more product details as needed -->
+          </div>
+        </div>
+        
+        <div class="pagination">
+          <span>{{ currentPage }} / {{ totalPages }}</span>
+          <button (click)="previousPage()" [disabled]="currentPage === 1">&lt;</button>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages">&gt;</button>
+        </div>
+      </main>
+    </div>
+  </div>

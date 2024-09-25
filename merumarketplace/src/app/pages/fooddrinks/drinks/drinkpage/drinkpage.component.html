@@ -1,1 +1,65 @@
-<p>drinkpage works!</p>
+<!-- drinks.component.html -->
+<div class="drinks-list">
+    <div class="drink-card" *ngFor="let drink of drinks">
+      <div class="drink-image">
+        <img [src]="drink.image" [alt]="drink.name">
+      </div>
+      <div class="drink-info">
+        <h3 class="name">{{drink.name}}</h3>
+        <p class="type">{{drink.type | titlecase}}</p>
+        <p class="description">{{drink.description}}</p>
+        <p class="price">{{drink.price | currency:'$'}}/{{drink.size}}</p>
+        <div class="rating">
+          <span class="stars">{{getStars(drink.rating)}}</span>
+          <span class="rating-value">{{drink.rating}}</span>
+          <a href="#" class="review-count">({{drink.reviewCount}} reviews)</a>
+        </div>
+      </div>
+      <button class="order-btn" (click)="orderDrink(drink.id)">Order Now</button>
+    </div>
+  </div>
+
+
+
+  <!-- sidebar.component.html -->
+<div class="sidebar">
+    <h2>Filter By</h2>
+    <ul>
+      <li>
+        <h3>Drink Type</h3>
+        <ul>
+          <li *ngFor="let type of drinkTypes">
+            <input type="checkbox" [id]="type" [name]="type" (change)="filterByType($event, type)">
+            <label [for]="type">{{type}}</label>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>Price</h3>
+        <ul>
+          <li *ngFor="let price of priceOptions">
+            <input type="radio" [id]="price" [name]="price" (change)="filterByPrice($event, price)">
+            <label [for]="price">{{price}}</label>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>Rating</h3>
+        <ul>
+          <li *ngFor="let rating of ratingOptions">
+            <input type="radio" [id]="rating" [name]="rating" (change)="filterByRating($event, rating)">
+            <label [for]="rating">{{rating}}</label>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>Size</h3>
+        <ul>
+          <li *ngFor="let size of sizeOptions">
+            <input type="checkbox" [id]="size" [name]="size" (change)="filterBySize($event, size)">
+            <label [for]="size">{{size}}</label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
