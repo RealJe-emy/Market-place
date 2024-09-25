@@ -10,7 +10,6 @@ export class LaundryserviceComponent {
 }
 
 // laundry-service.component.ts
-import { Component } from '@angular/core';
 
 interface LaundryService {
   name: string;
@@ -24,8 +23,8 @@ interface LaundryService {
 
 @Component({
   selector: 'app-laundry-service',
-  templateUrl: './laundry-service.component.html',
-  styleUrls: ['./laundry-service.component.scss']
+  templateUrl: './laundryservice.component.html',
+  styleUrls: ['./laundryservice.component.scss']
 })
 export class LaundryServiceComponent {
   service: LaundryService = {

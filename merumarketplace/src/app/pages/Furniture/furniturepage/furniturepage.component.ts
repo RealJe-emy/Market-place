@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-furniture',
-  templateUrl: './furniturepage.component.html',
-  styleUrls: ['./furniturepage.component.scss']
-})
-export class FurnitureComponent {}
-
 interface Product {
   id: number;
   name: string;
@@ -19,13 +12,13 @@ interface Product {
 }
 
 @Component({
-  selector: 'app-furniture-page',
+  selector: 'app-furniture',
   templateUrl: './furniturepage.component.html',
   styleUrls: ['./furniturepage.component.scss']
 })
-export class FurniturePageComponent implements OnInit {
-  minPrice: number | undefined;
-  maxPrice: number | undefined;
+export class FurnitureComponent implements OnInit {
+  minPrice: number;
+  maxPrice: number;
   categories: { name: string; checked: boolean }[] = [
     { name: 'Bed Pillows', checked: false },
     { name: 'Duvet Cover Sets', checked: false },
@@ -52,6 +45,7 @@ export class FurniturePageComponent implements OnInit {
   productsPerPage = 8;
 
   products: Product[] = [
+    // Add more product data here
     {
       id: 1,
       name: 'New Solar Light PIR Motion Sensor Garden Outdoor LED Street Lamp',
@@ -62,7 +56,7 @@ export class FurniturePageComponent implements OnInit {
       shipper: 'Fulfilled By Kilimall',
       category: 'Outdoor'
     },
-    // ... Add more product data here
+    // ... more products
   ];
 
   displayedProducts: Product[] = [];
@@ -91,6 +85,7 @@ export class FurniturePageComponent implements OnInit {
     });
 
     this.sortProducts(this.sortBy);
+    this.updateDisplayedProducts();
   }
 
   sortProducts(criteria: string): void {
@@ -128,7 +123,7 @@ export class FurniturePageComponent implements OnInit {
 
   updateDisplayedProducts(): void {
     const startIndex = (this.currentPage - 1) * this.productsPerPage;
-    this.displayedProducts = this.products.slice(startIndex, startIndex + this.productsPerPage);
+    this.displayedProducts = this.displayedProducts.slice(startIndex, startIndex + this.productsPerPage);
   }
 
   toggleCategoryView(): void {

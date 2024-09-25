@@ -1,145 +1,167 @@
-// import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-// interface Category {
-//   name: string;
-//   checked: boolean;
-// }
+@Component({
+  selector: 'app-electronicspage',
+  templateUrl: './electronicspage.component.html',
+  styleUrl: './electronicspage.component.scss'
+})
+export class ElectronicspageComponent {
 
-// interface Brand {
-//   name: string;
-//   checked: boolean;
-// }
+}
 
-// interface Feature {
-//   name: string;
-//   checked: boolean;
-// }
 
-// interface Product {
-//   name: string;
-//   price: number;
-//   imageUrl: string;
-//   rating: number;
-//   reviewCount: number;
-//   brand: string;
-// }
+interface Category {
+  name: string;
+  checked: boolean;
+}
 
-// @Component({
-//   selector: 'app-electronics-page',
-//   templateUrl: './electronicspage.component.html',
-//   styleUrls: ['./electronicspage.component.scss']
-// })
-// export class ElectronicsPageComponent implements OnInit {
-//   minPrice: number = 0;
-//   maxPrice: number = 10000;
-//   categories: Category[] = [];
-//   brands: Brand[] = [];
-//   features: Feature[] = [];
-//   displayedProducts: Product[] = [];
-//   sortBy: string = 'Popular';
-//   priceAsc: boolean = true;
-//   currentPage: number = 1;
-//   totalPages: number = 1;
-//   showAllCategories: boolean = false;
-//   showAllBrands: boolean = false;
+interface Brand {
+  name: string;
+  checked: boolean;
+}
 
-//   constructor() {}
+interface Feature {
+  name: string;
+  checked: boolean;
+}
 
-//   ngOnInit(): void {
-//     this.loadCategories();
-//     this.loadBrands();
-//     this.loadFeatures();
-//     this.loadProducts();
-//   }
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  rating: number;
+  reviewCount: number;
+  brand: string;
+}
 
-//   loadCategories(): void {
-//     // Example category data; replace with actual data from a service
-//     this.categories = [
-//       { name: 'Electronics', checked: false },
-//       { name: 'Appliances', checked: false },
-//       { name: 'Computers', checked: false },
-//       { name: 'Accessories', checked: false }
-//     ];
-//   }
+export class ElectronicsPageComponent implements OnInit {
+  minPrice: number;
+  maxPrice: number;
+  categories: Category[] = [];
+  brands: Brand[] = [];
+  features: Feature[] = [];
+  showAllCategories: boolean = false;
+  showAllBrands: boolean = false;
+  sortBy: string = 'Popular';
+  priceAsc: boolean = true;
+  currentPage: number = 1;
+  totalPages: number = 1;
+  displayedProducts: Product[] = [];
+  allProducts: Product[] = [];
 
-//   loadBrands(): void {
-//     // Example brand data; replace with actual data from a service
-//     this.brands = [
-//       { name: 'Brand A', checked: false },
-//       { name: 'Brand B', checked: false },
-//       { name: 'Brand C', checked: false }
-//     ];
-//   }
+  constructor() { }
 
-//   loadFeatures(): void {
-//     // Example feature data; replace with actual data from a service
-//     this.features = [
-//       { name: 'Water Resistant', checked: false },
-//       { name: 'Bluetooth', checked: false },
-//       { name: 'WiFi Enabled', checked: false }
-//     ];
-//   }
+  ngOnInit(): void {
+    this.initializeFilters();
+    this.loadProducts();
+  }
 
-//   loadProducts(): void {
-//     // Example product data; replace with actual data from a service
-//     this.displayedProducts = [
-//       { name: 'Product 1', price: 5000, imageUrl: 'path/to/image1.jpg', rating: 4.5, reviewCount: 10, brand: 'Brand A' },
-//       { name: 'Product 2', price: 8000, imageUrl: 'path/to/image2.jpg', rating: 4.0, reviewCount: 5, brand: 'Brand B' },
-//       // Add more products as needed
-//     ];
-//     this.totalPages = Math.ceil(this.displayedProducts.length / 10); // Example pagination
-//   }
+  initializeFilters(): void {
+    // Initialize categories, brands, and features
+    // This would typically come from a service or API
+    this.categories = [
+      { name: 'Smartphones', checked: false },
+      { name: 'Laptops', checked: false },
+      // ... other categories
+    ];
 
-//   applyPriceFilter(minPrice: string, maxPrice: string): void {
-//     const min = parseFloat(minPrice);
-//     const max = parseFloat(maxPrice);
-    
-//     // Filter products based on price
-//     this.displayedProducts = this.displayedProducts.filter(product => 
-//       product.price >= min && product.price <= max
-//     );
-//   }
+    this.brands = [
+      { name: 'Apple', checked: false },
+      { name: 'Samsung', checked: false },
+      // ... other brands
+    ];
 
-//   filterProducts(item: Category | Brand | Feature): void {
-//     // Example filter logic; implement based on your requirements
-//     if ('checked' in item) {
-//       item.checked = !item.checked;
-//     }
-//     // Apply filtering logic based on selected categories, brands, or features
-//   }
+    this.features = [
+      { name: 'Wi-Fi', checked: false },
+      { name: 'Bluetooth', checked: false },
+      // ... other features
+    ];
+  }
 
-//   toggleCategoryView(): void {
-//     this.showAllCategories = !this.showAllCategories;
-//     // Optionally load more categories if needed
-//   }
+  applyPriceFilter(): void {
+    this.filterProducts();
+  }
 
-//   toggleBrandView(): void {
-//     this.showAllBrands = !this.showAllBrands;
-//     // Optionally load more brands if needed
-//   }
+  filterProducts(): void {
+    // Apply all filters (price, category, brand, features)
+    let filteredProducts = this.allProducts.filter(product => {
+      const priceInRange = (!this.minPrice || product.price >= this.minPrice) &&
+                           (!this.maxPrice || product.price <= this.maxPrice);
+      const categoryMatch = this.categories.every(cat => !cat.checked || product.category === cat.name);
+      const brandMatch = this.brands.every(brand => !brand.checked || product.brand === brand.name);
+      const featureMatch = this.features.every(feature => !feature.checked || product.features.includes(feature.name));
 
-//   sortProducts(sortBy: string): void {
-//     this.sortBy = sortBy;
-//     // Sort logic here based on sortBy
-//     // Implement sorting logic based on price, popularity, etc.
-//   }
+      return priceInRange && categoryMatch && brandMatch && featureMatch;
+    });
 
-//   previousPage(): void {
-//     if (this.currentPage > 1) {
-//       this.currentPage--;
-//       // Logic to update displayed products for the new page
-//     }
-//   }
+    this.updateDisplayedProducts(filteredProducts);
+  }
 
-//   nextPage(): void {
-//     if (this.currentPage < this.totalPages) {
-//       this.currentPage++;
-//       // Logic to update displayed products for the new page
-//     }
-//   }
+  toggleCategoryView(): void {
+    this.showAllCategories = !this.showAllCategories;
+  }
 
-//   getStarRating(rating: number): string {
-//     // Method to generate star rating HTML or return a string representation
-//     return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
-//   }
-// }
+  toggleBrandView(): void {
+    this.showAllBrands = !this.showAllBrands;
+  }
+
+  sortProducts(criteria: string): void {
+    this.sortBy = criteria;
+    switch (criteria) {
+      case 'Popular':
+        // Implement popularity sorting logic
+        break;
+      case 'Top Sale':
+        // Implement top sale sorting logic
+        break;
+      case 'Latest':
+        // Implement latest sorting logic
+        break;
+      case 'Price':
+        this.priceAsc = !this.priceAsc;
+        this.displayedProducts.sort((a, b) => this.priceAsc ? a.price - b.price : b.price - a.price);
+        break;
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedProducts();
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedProducts();
+    }
+  }
+
+  getStarRating(rating: number): string {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
+
+    return '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(emptyStars);
+  }
+
+  private loadProducts(): void {
+    // This would typically be an API call
+    // For now, we'll just simulate some products
+    this.allProducts = [
+      { id: 1, name: 'Smartphone X', price: 999, imageUrl: 'path/to/image.jpg', rating: 4.5, reviewCount: 120, brand: 'TechBrand' },
+      // ... more products
+    ];
+    this.updateDisplayedProducts();
+  }
+
+  private updateDisplayedProducts(filteredProducts?: Product[]): void {
+    const productsToDisplay = filteredProducts || this.allProducts;
+    const itemsPerPage = 20; // Adjust as needed
+    this.totalPages = Math.ceil(productsToDisplay.length / itemsPerPage);
+    const startIndex = (this.currentPage - 1) * itemsPerPage;
+    this.displayedProducts = productsToDisplay.slice(startIndex, startIndex + itemsPerPage);
+  }
+}

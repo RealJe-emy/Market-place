@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+@Component({
+  selector: 'app-secondhanddescription',
+  templateUrl: './secondhanddescription.component.html',
+  styleUrl: './secondhanddescription.component.scss'
+})
+export class SecondhanddescriptionComponent {
+
+}
+
+// secondhand-item.component.ts
+
 interface SecondhandItem {
   name: string;
   category: string;
@@ -18,13 +29,13 @@ interface SecondhandItem {
 
 @Component({
   selector: 'app-secondhand-item',
-  templateUrl: './secondhanddescription.component.html', // Ensure this matches the actual HTML file
+  templateUrl: './secondhanddescription.component.html',
   styleUrls: ['./secondhanddescription.component.scss']
 })
 export class SecondhandItemComponent implements OnInit {
   item: SecondhandItem = {
     name: 'Vintage Leather Armchair',
-    category: 'Furniture',
+    category: 'Secondhand',
     description: 'Classic mid-century modern leather armchair in good condition',
     condition: 'Good',
     age: '20 years',
@@ -40,9 +51,9 @@ export class SecondhandItemComponent implements OnInit {
 
   currentImageIndex: number = 0;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   nextImage(): void {
     this.currentImageIndex = (this.currentImageIndex + 1) % this.item.images.length;

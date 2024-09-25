@@ -19,7 +19,6 @@ import { ProductspageComponent } from './pages/productspage/productspage.compone
 import { MenshoespageComponent } from './pages/Men shoes/menshoespage/menshoespage.component';
 import { MenshoesdescriptionpageComponent } from './pages/Men shoes/menshoesdescriptionpage/menshoesdescriptionpage.component';
 import { DrinkspageComponent } from './pages/Drinks/drinkspage/drinkspage.component';
-<<<<<<< Updated upstream
 import { DrinksdescriptionpageComponent } from './pages/Drinks/drinksdescriptionpage/drinksdescriptionpage.component';
 import { ElectronicspageComponent } from './pages/Electronics/electronicspage/electronicspage.component';
 import { ElectronicsdescriptionComponent } from './pages/Electronics/electronicsdescription/electronicsdescription.component';
@@ -32,13 +31,8 @@ import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.compo
 import { WifidescriptionComponent } from './pages/WiFi/wifidescription/wifidescription.component';
 import { GasserviceComponent } from './pages/Gas/gasservice/gasservice.component';
 import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescription.component';
-=======
-import { ProductPageComponent } from './pages/kitchen/kitchendescription/kitchendescription.component';
-import { PhotographersdescriptionComponent } from './pages/photoshoot/photographersdescription/photographersdescription.component';
-
-
-
->>>>>>> Stashed changes
+import { GamingpageComponent } from './pages/Gaming/gamingpage/gamingpage.component';
+import { GamingdescriptionComponent } from './pages/Gaming/gamingdescription/gamingdescription.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +44,6 @@ import { PhotographersdescriptionComponent } from './pages/photoshoot/photograph
     MenshoespageComponent,
     MenshoesdescriptionpageComponent,
     DrinkspageComponent,
-<<<<<<< Updated upstream
     DrinksdescriptionpageComponent,
     ElectronicspageComponent,
     ElectronicsdescriptionComponent,
@@ -62,15 +55,9 @@ import { PhotographersdescriptionComponent } from './pages/photoshoot/photograph
     WifiserviceComponent,
     WifidescriptionComponent,
     GasserviceComponent,
-    GasdescriptionComponent
-=======
-    PhotographersdescriptionComponent,
-
-   
-
-
-
->>>>>>> Stashed changes
+    GasdescriptionComponent,
+    GamingpageComponent,
+    GamingdescriptionComponent
   ],
   imports: [
     BrowserModule,

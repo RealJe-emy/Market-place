@@ -1,5 +1,21 @@
 import { Component } from '@angular/core';
 
+@Component({
+  selector: 'app-wifiservice',
+  templateUrl: './wifiservice.component.html',
+  styleUrl: './wifiservice.component.scss'
+})
+export class WifiserviceComponent {
+toggleContact() {
+throw new Error('Method not implemented.');
+}
+service: any;
+showContact: any;
+
+}
+
+// laundry-service.component.ts
+
 interface LaundryService {
   name: string;
   description: string;
@@ -12,13 +28,13 @@ interface LaundryService {
 
 @Component({
   selector: 'app-laundry-service',
-  templateUrl: './wifiservice.component.html', // Ensure this matches the actual HTML file
-  styleUrls: ['./wifiservice.component.scss'] // Corrected from styleUrl to styleUrls
+  templateUrl: './wifiservice.component.html',
+  styleUrls: ['./wifiservice.component.scss']
 })
-export class LaundryServiceComponent {
+export class WifiserviceComponentServiceComponent {
   service: LaundryService = {
-    name: 'SparkleClean Laundry',
-    description: 'Professional wash, dry, and fold service for all your laundry needs.',
+    name: 'WifiProvider',
+    description: 'Fast and Reliable internet.',
     price: 'Starting at $1.50 per pound',
     turnaroundTime: '24-48 hours',
     contactName: 'John Doe',
@@ -28,7 +44,7 @@ export class LaundryServiceComponent {
 
   showContact: boolean = false;
 
-  toggleContact(): void {
-    this.showContact = !this.showContact; // Implemented toggle logic
+  toggleContact() {
+    this.showContact = !this.showContact;
   }
 }
