@@ -1,0 +1,130 @@
+// Import custom bootstrap if needed
+// @import 'src/assets/custom-bootstrap.scss';
+
+// Custom variables
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+$border-radius: 10px;
+$link-decoration: none;
+
+.laundry-service-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: $font-family-base;
+  color: $body-color;
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      color: $primary;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-family: $headings-font-family;
+      font-weight: $display-font-weight;
+    }
+
+    .description {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+  }
+
+  section {
+    margin-bottom: 40px;
+
+    h2 {
+      color: $primary;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid $primary;
+      padding-bottom: 10px;
+      font-family: $headings-font-family;
+      font-weight: $headings-font-weight;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .pricing {
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $light;
+        padding-bottom: 5px;
+
+        .service-name {
+          font-weight: bold;
+        }
+
+        .price {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+  .contact {
+    background-color: $light;
+    border-radius: $border-radius;
+    padding: 20px;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: $link-decoration;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .hours {
+    ul {
+      li {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .laundry-service-detail {
+    padding: 20px 10px;
+
+    header {
+      h1 {
+        font-size: 2em;
+      }
+    }
+
+    section {
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
