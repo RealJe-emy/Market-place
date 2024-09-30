@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,19 +14,19 @@ export class RegistrationComponent {
   isError = false;
 
   constructor(
-    public afAuth: AngularFireAuth,
     private registerService: RegisterService,
     private router: Router,
     private fb: FormBuilder
   ) {
     this.registrationForm = this.fb.group({
-      username: [''],
-      email: [''],
-      password: [''],
-      
-      confirmPassword: [''],
-      role: [''], // New role field
-      location: [''] // New location field
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/) // At least one uppercase, one lowercase, one digit, one special character
+      ]],
+      confirmPassword: ['', Validators.required]
     }, {
       validator: this.passwordMatchValidator
     });
@@ -42,30 +41,21 @@ export class RegistrationComponent {
     if (this.registrationForm.invalid) {
       this.message = 'Please fill out the form correctly.';
       this.isError = true;
+      setTimeout(() => this.message = null, 2000); // Clear message after 2 seconds
       return;
     }
-  
-    const { username, email, password, role, location } = this.registrationForm.value;
-  
-    this.registerService.register(email, password, username, role, location)
-      .then(() => {
+
+    this.registerService.register(this.registrationForm.value).subscribe(
+      response => {
         this.message = 'Registration successful!';
         this.isError = false;
-  
-        // Optionally, redirect or reset the form after a successful registration
-        setTimeout(() => {
-          this.router.navigate(['/login']); // Redirect to login page after 2 seconds
-        }, 2000);
-      })
-      .catch(error => {
-        this.message = 'Registration failed: ' + error.message;
+        setTimeout(() => this.router.navigate(['/login']), 2000); // Redirect after 2 seconds
+      },
+      error => {
+        this.message = 'Registration failed. Please try again.';
         this.isError = true;
-        
-        // Optionally, clear the message after a few seconds
-        setTimeout(() => {
-          this.message = null; // Clear message after 3 seconds
-        }, 3000);
-      });
+        setTimeout(() => this.message = null, 2000); // Clear message after 2 seconds
+      }
+    );
   }
-  
 }
