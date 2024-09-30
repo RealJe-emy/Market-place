@@ -1,0 +1,17 @@
+<div class="gaming-service-card" (click)="toggleDetails()">
+    <div class="service-info">
+      <h2>{{ service.name }}</h2>
+      <p class="description">{{ service.description }}</p>
+      <p class="genre"><strong>Genre:</strong> {{ service.genre }}</p>
+      <p class="platform"><strong>Platform:</strong> {{ service.platform }}</p>
+    </div>
+    <div class="details-info" [class.show]="showDetails">
+      <h3>Game Details</h3>
+      <p><strong>Release Date:</strong> {{ service.releaseDate }}</p>
+      <p><strong>Developer:</strong> {{ service.developer }}</p>
+      <p><strong>Rating:</strong> {{ service.rating }}</p>
+    </div>
+    <div class="click-instruction" [class.hide]="showDetails">
+      Click to view game details
+    </div>
+  </div>

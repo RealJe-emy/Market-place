@@ -1,0 +1,52 @@
+<!-- secondhand-item.component.html -->
+<div class="item-container">
+    <div class="item-images">
+      <img [src]="item.images[currentImageIndex]" [alt]="item.name">
+      <div class="image-navigation">
+        <button (click)="prevImage()">&lt;</button>
+        <button (click)="nextImage()">&gt;</button>
+      </div>
+    </div>
+    <div class="item-details">
+      <h1>{{ item.name }}</h1>
+      <p class="category">{{ item.category }}</p>
+      <p class="description">{{ item.description }}</p>
+      <div class="price-info">
+        <span class="current-price">${{ item.currentPrice }}</span>
+        <span class="original-price">${{ item.originalPrice }}</span>
+        <span class="discount">{{ calculateDiscount() }}% off</span>
+      </div>
+      <div class="item-info">
+        <p><strong>Condition:</strong> {{ item.condition }}</p>
+        <p><strong>Age:</strong> {{ item.age }}</p>
+        <p><strong>Location:</strong> {{ item.location }}</p>
+      </div>
+      <div class="seller-info">
+        <p><strong>Seller:</strong> {{ item.sellerName }}</p>
+        <div class="seller-rating">
+          <span class="stars">
+            <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+          </span>
+          <span class="rating-value">{{ item.sellerRating }}</span>
+        </div>
+      </div>
+      <div class="features">
+        <h3>Features:</h3>
+        <ul>
+          <li *ngFor="let feature of item.features">{{ feature }}</li>
+        </ul>
+      </div>
+      <div class="flaws">
+        <h3>Known Flaws:</h3>
+        <ul>
+          <li *ngFor="let flaw of item.flaws">{{ flaw }}</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <button class="contact-seller">Contact Seller</button>
+        <button class="make-offer">Make an Offer</button>
+        <button class="favorite"><i class="far fa-heart"></i></button>
+        <button class="share"><i class="fas fa-share"></i></button>
+      </div>
+    </div>
+  </div>

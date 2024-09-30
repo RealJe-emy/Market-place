@@ -1,0 +1,44 @@
+<!-- laundry-service-detail.component.html -->
+<div class="laundry-service-detail">
+    <header>
+      <h1>{{ service.name }}</h1>
+      <p class="description">{{ service.description }}</p>
+    </header>
+  
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li *ngFor="let item of service.services">{{ item }}</li>
+      </ul>
+    </section>
+  
+    <section class="pricing">
+      <h2>Pricing</h2>
+      <ul>
+        <li *ngFor="let item of service.pricing">
+          <span class="service-name">{{ item.service }}:</span>
+          <span class="price">{{ item.price }}</span>
+        </li>
+      </ul>
+    </section>
+  
+    <section class="turnaround">
+      <h2>Turnaround Time</h2>
+      <p>{{ service.turnaroundTime }}</p>
+    </section>
+  
+    <section class="contact">
+      <h2>Contact Information</h2>
+      <p><strong>Name:</strong> {{ service.contactName }}</p>
+      <p><strong>Phone:</strong> <a [href]="'tel:' + service.contactPhone">{{ service.contactPhone }}</a></p>
+      <p><strong>Email:</strong> <a [href]="'mailto:' + service.contactEmail">{{ service.contactEmail }}</a></p>
+      <p><strong>Address:</strong> {{ service.address }}</p>
+    </section>
+  
+    <section class="hours">
+      <h2>Business Hours</h2>
+      <ul>
+        <li *ngFor="let hour of service.hours">{{ hour }}</li>
+      </ul>
+    </section>
+  </div>

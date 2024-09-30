@@ -1,182 +1,86 @@
-// Import custom bootstrap if needed
-// @import 'src/assets/custom-bootstrap.scss';
-
-// Custom variables
 $primary: #81C408;
 $secondary: #FFB524;
 $light: #F4F6F8;
 $dark: #45595B;
 
-$font-family-base: 'Open Sans', sans-serif;
-$headings-font-family: 'Raleway', sans-serif;
-$body-color: #747d88;
-$headings-color: $dark;
-$headings-font-weight: 600;
-$display-font-weight: 800;
-$border-radius: 10px;
-$link-decoration: none;
+body {
+    background-color: $light;
 
-// Photoshoot listings styles
-.photoshoot-listings {
-  font-family: $font-family-base;
-  color: $body-color;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: $headings-font-family;
-    color: $headings-color;
-    font-weight: $headings-font-weight;
-  }
-
-  .filters {
-    width: 250px;
-    padding-right: 20px;
-  }
-
-  .results {
-    flex: 1;
-  }
-
-  .sorting-options {
+}
+.product-page {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-
-    button {
-      padding: 8px 12px;
-      background-color: $light;
-      border: none;
-      border-radius: $border-radius;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: darken($light, 5%);
-      }
-    }
-  }
-
-  .photographers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-
-  .photographer-card {
-    border: 1px solid $light;
-    border-radius: $border-radius;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .photographer-image {
-      height: 200px;
-      overflow: hidden;
-
+    padding: 2rem;
+  
+    .product-image {
+      flex: 1;
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        max-width: 100%;
       }
     }
-
-    .photographer-info {
-      padding: 15px;
-
-      .name {
-        margin: 0 0 10px;
-        font-size: 1.2em;
-      }
-
-      .description {
-        margin-bottom: 10px;
-      }
-
-      .price {
-        font-weight: bold;
-        color: $secondary;
-      }
-
+  
+    .product-details {
+      flex: 1;
+      padding-left: 2rem;
+  
       .rating {
         display: flex;
         align-items: center;
-        margin-top: 10px;
-
-        .stars {
-          color: $secondary;
-          margin-right: 5px;
+        margin-bottom: 1rem;
+  
+        app-rating {
+          margin-right: 0.5rem;
         }
-
-        .review-count {
-          margin-left: 10px;
-          color: $primary;
-          text-decoration: $link-decoration;
-
+      }
+  
+      .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+  
+        .original-price {
+          font-size: 1rem;
+          color: $dark;
+          text-decoration: line-through;
+          margin-left: 0.5rem;
+        }
+      }
+  
+      .actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+  
+        button {
+          padding: 0.75rem 1.5rem;
+          border-radius: 4px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s;
+  
           &:hover {
-            text-decoration: underline;
+            opacity: 0.8;
+          }
+        }
+  
+        .add-to-cart {
+          background-color: $primary;
+          color: $dark;
+          border: none;
+  
+          &:hover {
+            background-color: darken($secondary, 10%);
+          }
+        }
+  
+        .buy-now {
+          background-color: $primary;
+          color: $dark;
+          border: none;
+  
+          &:hover {
+            background-color: darken($secondary, 10%);
           }
         }
       }
     }
-
-    .contact-btn {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: $primary;
-      color: white;
-      border: none;
-      border-radius: 0 0 $border-radius $border-radius;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: darken($primary, 10%);
-      }
-    }
   }
-
-  .pagination {
-    margin-top: 20px;
-    text-align: center;
-
-    a {
-      color: $primary;
-      text-decoration: $link-decoration;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-// Responsive font sizes
-@if $enable-responsive-font-sizes {
-  html {
-    font-size: 16px;
-  }
-
-  @media (max-width: 1200px) {
-    html {
-      font-size: 15px;
-    }
-  }
-
-  @media (max-width: 992px) {
-    html {
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    html {
-      font-size: 13px;
-    }
-  }
-}

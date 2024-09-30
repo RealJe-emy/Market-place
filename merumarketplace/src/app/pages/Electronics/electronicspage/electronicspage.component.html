@@ -1,0 +1,76 @@
+<!-- <div class="electronics-page">
+    <div class="sidebar">
+      <h3>Search filter</h3>
+      <div class="filter-section">
+        <h4>Price</h4>
+        <div class="price-inputs">
+          <input type="number" placeholder="Min" [(ngModel)]="minPrice">
+          <span>-</span>
+          <input type="number" placeholder="Max" [(ngModel)]="maxPrice">
+        </div>
+        <button (click)="applyPriceFilter()">Apply</button>
+      </div>
+      <div class="filter-section">
+        <h4>Category</h4>
+        <ul>
+          <li *ngFor="let category of categories">
+            <label>
+              <input type="checkbox" [(ngModel)]="category.checked" (change)="filterProducts()">
+              {{ category.name }}
+            </label>
+          </li>
+        </ul>
+        <a href="#" (click)="toggleCategoryView()">{{ showAllCategories ? 'View Less' : 'View More' }}</a>
+      </div>
+      <div class="filter-section">
+        <h4>Brand</h4>
+        <ul>
+          <li *ngFor="let brand of brands">
+            <label>
+              <input type="checkbox" [(ngModel)]="brand.checked" (change)="filterProducts()">
+              {{ brand.name }}
+            </label>
+          </li>
+        </ul>
+        <a href="#" (click)="toggleBrandView()">{{ showAllBrands ? 'View Less' : 'View More' }}</a>
+      </div>
+      <div class="filter-section">
+        <h4>Features</h4>
+        <ul>
+          <li *ngFor="let feature of features">
+            <label>
+              <input type="checkbox" [(ngModel)]="feature.checked" (change)="filterProducts()">
+              {{ feature.name }}
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="sort-bar">
+        <button [class.active]="sortBy === 'Popular'" (click)="sortProducts('Popular')">Popular</button>
+        <button [class.active]="sortBy === 'Top Sale'" (click)="sortProducts('Top Sale')">Top Sale</button>
+        <button [class.active]="sortBy === 'Latest'" (click)="sortProducts('Latest')">Latest</button>
+        <button [class.active]="sortBy === 'Price'" (click)="sortProducts('Price')">
+          Price <i class="fas" [ngClass]="{'fa-sort-up': priceAsc, 'fa-sort-down': !priceAsc}"></i>
+        </button>
+        <div class="pagination">
+          {{ currentPage }} / {{ totalPages }}
+          <button (click)="previousPage()" [disabled]="currentPage === 1">&lt;</button>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages">&gt;</button>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let product of displayedProducts">
+          <img [src]="product.imageUrl" [alt]="product.name">
+          <h3>{{ product.name }}</h3>
+          <p class="price">{{ product.price | currency:'KSh ' }}</p>
+          <div class="rating">
+            <span class="stars" [innerHTML]="getStarRating(product.rating)"></span>
+            <span class="review-count">({{ product.reviewCount }})</span>
+          </div>
+          <p class="brand">{{ product.brand }}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
