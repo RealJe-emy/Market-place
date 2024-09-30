@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';  // Import FormsModule here
 
-import { AngularFireModule } from '@angular/fire/compat'; // Adjusted import
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
-import { environment } from '../envirornments/environment.pro';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Authentication/login/login.component';
@@ -25,6 +20,14 @@ import { ElectronicsdescriptionComponent } from './pages/Electronics/electronics
 import { FurnituredescriptionComponent } from './pages/Furniture/furnituredescription/furnituredescription.component';
 import { SecondhanddescriptionComponent } from './pages/SecondHand/secondhanddescription/secondhanddescription.component';
 import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secondhandpage.component';
+import { LaundryserviceComponent } from './pages/Laundry/laundryservice/laundryservice.component';
+import { LaundrydescriptionComponent } from './pages/Laundry/laundrydescription/laundrydescription.component';
+import { WifiserviceComponent } from './pages/WiFi/wifiservice/wifiservice.component';
+import { WifidescriptionComponent } from './pages/WiFi/wifidescription/wifidescription.component';
+import { GasserviceComponent } from './pages/Gas/gasservice/gasservice.component';
+import { GasdescriptionComponent } from './pages/Gas/gasdescription/gasdescription.component';
+import { GamingpageComponent } from './pages/Gaming/gamingpage/gamingpage.component';
+import { GamingdescriptionComponent } from './pages/Gaming/gamingdescription/gamingdescription.component';
 
 @NgModule({
   declarations: [
@@ -41,20 +44,26 @@ import { SecondhandpageComponent } from './pages/SecondHand/secondhandpage/secon
     ElectronicsdescriptionComponent,
     FurnituredescriptionComponent,
     SecondhanddescriptionComponent,
-    SecondhandpageComponent
+    SecondhandpageComponent,
+    LaundryserviceComponent,
+    LaundrydescriptionComponent,
+    WifiserviceComponent,
+    WifidescriptionComponent,
+    GasserviceComponent,
+    GasdescriptionComponent,
+    GamingpageComponent,
+    GamingdescriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), // Initialize Firebase
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFirestoreModule // Ensure Firestore is imported if used
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    provideClientHydration()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

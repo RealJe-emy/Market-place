@@ -1,0 +1,66 @@
+<div class="rental-listings">
+    <div class="filters">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label for="rental-type">Rental Type:</label>
+        <select id="rental-type" [(ngModel)]="selectedRentalType">
+          <option value="">All</option>
+          <option value="airbnb">Airbnb</option>
+          <option value="house">Houses</option>
+          <option value="bike">Bikes</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="price-range">Price Range:</label>
+        <input type="range" id="price-range" min="0" max="10000" [(ngModel)]="selectedPriceRange">
+        <span>KSh {{selectedPriceRange}}</span>
+      </div>
+      <div class="filter-group">
+        <label for="rating">Minimum Rating:</label>
+        <select id="rating" [(ngModel)]="selectedRating">
+          <option value="">All</option>
+          <option value="3">3 stars & up</option>
+          <option value="4">4 stars & up</option>
+          <option value="5">5 stars</option>
+        </select>
+      </div>
+      <button (click)="applyFilters()" class="apply-filters-btn">Apply Filters</button>
+    </div>
+  
+    <div class="results">
+      <div class="sorting-options">
+        <label for="sort-by">Sort by:</label>
+        <select id="sort-by" [(ngModel)]="selectedSort" (change)="sortRentals()">
+          <option value="price">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+  
+      <div class="rentals-grid">
+        <div class="rental-card" *ngFor="let rental of rentals">
+          <div class="rental-image">
+            <img [src]="rental.image" [alt]="rental.name">
+          </div>
+          <div class="rental-info">
+            <h3 class="name">{{rental.name}}</h3>
+            <p class="type">{{rental.type | titlecase}}</p>
+            <p class="description">{{rental.description}}</p>
+            <p class="price">{{rental.price | currency:'KSh '}}/day</p>
+            <div class="rating">
+              <span class="stars">{{getStars(rental.rating)}}</span>
+              <span class="rating-value">{{rental.rating}}</span>
+              <a href="#" class="review-count">({{rental.reviewCount}} reviews)</a>
+            </div>
+          </div>
+          <button class="book-btn" (click)="bookRental(rental.id)">Book Now</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="pagination">
+      <button (click)="changePage(-1)" [disabled]="currentPage === 1">&laquo; Previous</button>
+      <span>Page {{currentPage}} of {{totalPages}}</span>
+      <button (click)="changePage(1)" [disabled]="currentPage === totalPages">Next &raquo;</button>
+    </div>
+  </div>

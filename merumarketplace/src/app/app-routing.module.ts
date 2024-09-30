@@ -6,6 +6,7 @@ import { RegistrationComponent } from './Authentication/registration/registratio
 
 const routes: Routes = [
   {path:'', component: LandingComponent},
+  {path: 'landing', component: LandingComponent}
  {path:'login', component: LoginComponent},
   {path:'Registration', component: RegistrationComponent},
   {path:'landing', component: LandingComponent},

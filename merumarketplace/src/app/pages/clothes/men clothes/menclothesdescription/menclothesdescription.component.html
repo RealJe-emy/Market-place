@@ -1,0 +1,84 @@
+<div class="drinks-page">
+    <nav class="breadcrumb">
+      <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+        <a *ngIf="!last" href="#">{{crumb}}</a>
+        <span *ngIf="!last"> &gt; </span>
+        <span *ngIf="last">{{crumb}}</span>
+      </ng-container>
+      <span> &gt; SKU ID: {{drink.id}}</span>
+    </nav>
+  
+    <div class="drinks-container">
+      <div class="drinks-image">
+        <img [src]="drink.mainImage" [alt]="drink.name">
+        <div class="thumbnail-list">
+          <img *ngFor="let thumb of drink.thumbnails" [src]="thumb" [alt]="drink.name + ' thumbnail'">
+        </div>
+      </div>
+  
+      <div class="drinks-details">
+        <h1>{{drink.name}}</h1>
+        <p>{{drink.description}}</p>
+  
+        <div class="rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-value">{{drink.rating}}</span>
+          <a href="#" class="review-count">{{drink.reviewCount}} Customer reviews</a>
+        </div>
+  
+        <div class="sale-banner">
+          <span class="sale-tag">Super Brand Sale</span>
+          <span class="sale-date">Sep.2nd~30th</span>
+        </div>
+  
+        <div class="price">
+          <span class="current-price">KSh {{drink.price}}</span>
+          <span class="original-price">KSh {{drink.originalPrice}}</span>
+          <span class="discount">{{drink.discount}}% off</span>
+        </div>
+  
+        <div class="promo">
+          <a href="#">Over KSh3000 Get 100 Off &gt;</a>
+        </div>
+  
+        <div class="service">
+          <span>Services:</span>
+          <span>Fulfilled By Kilimall</span>
+        </div>
+  
+        <div class="volume-selection">
+          <label>Volume:</label>
+          <a href="#">Volume Guide</a>
+          <div class="volume-options">
+            <button *ngFor="let volume of drink.volumes" [disabled]="!volume.available">{{volume.size}} ml</button>
+          </div>
+        </div>
+  
+        <div class="flavor-selection">
+          <label>Flavor:</label>
+          <div class="flavor-options">
+            <button *ngFor="let flavor of drink.flavors" [style.background-color]="flavor.color">{{flavor.name}}</button>
+          </div>
+        </div>
+  
+        <div class="delivery-info">
+          <span>Delivery Information:</span>
+          <span>Ships from Nairobi, arrives in Municipality within 3-6 workdays.</span>
+        </div>
+  
+        <div class="quantity">
+          <label>Quantity</label>
+          <button (click)="updateQuantity(-1)">-</button>
+          <input type="number" [(ngModel)]="drink.quantity" min="1">
+          <button (click)="updateQuantity(1)">+</button>
+        </div>
+  
+        <div class="action-buttons">
+          <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+          <button class="buy-now" (click)="buyNow()">Buy Now</button>
+          <button class="favorite">♡</button>
+          <button class="share">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>

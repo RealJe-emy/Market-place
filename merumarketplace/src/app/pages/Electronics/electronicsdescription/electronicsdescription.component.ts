@@ -1,16 +1,3 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-electronicsdescription',
-  templateUrl: './electronicsdescription.component.html',
-  styleUrl: './electronicsdescription.component.scss'
-})
-export class ElectronicsdescriptionComponent {
-
-}
-
-
-// product.component.ts
 import { Component, OnInit } from '@angular/core';
 
 interface Product {
@@ -27,8 +14,8 @@ interface Product {
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  templateUrl: './electronicsdescription.component.html',
+  styleUrls: ['./electronicsdescription.component.scss']
 })
 export class ProductComponent implements OnInit {
   product: Product = {

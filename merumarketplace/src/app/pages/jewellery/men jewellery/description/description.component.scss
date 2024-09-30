@@ -1,0 +1,84 @@
+// @import 'src\assets\custom-bootstrap.scss';
+
+// Colors
+$primary: #81C408;
+$secondary: #FFB524;
+$light: #F4F6F8;
+$dark: #45595B;
+
+// Fonts
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Raleway', sans-serif;
+
+// Typography
+$body-color: #747d88;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 800;
+$enable-responsive-font-sizes: true;
+
+// Borders
+$border-radius: 10px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+
+// Links
+$link-decoration: none;
+
+// Margins
+$enable-negative-margins: true;
+
+// Global Styles
+body {
+  font-family: $font-family-base;
+  color: $body-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  color: $headings-color;
+  font-weight: $headings-font-weight;
+}
+
+.display {
+  font-weight: $display-font-weight;
+}
+
+a {
+  text-decoration: $link-decoration;
+  color: $primary;
+
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.btn {
+  border-radius: $border-radius;
+
+  &.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+      border-color: darken($secondary, 10%);
+    }
+  }
+}
+
+.product-page {
+  // Your product page specific styles go here
+}
